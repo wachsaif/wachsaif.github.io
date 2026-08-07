@@ -581,10 +581,26 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   section{padding:80px 0;}
   .hire-section{margin:0 12px;padding:56px 24px;}
 }
+.cursor-glow{
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle,
+        rgba(99,0,205,.28) 0%,
+        rgba(99,0,205,.12) 35%,
+        transparent 70%);
+    filter: blur(20px);
+    z-index: 0;
+}
 </style>
 </head>
 
 <body>
+
+<div id="cursorGlow" class="cursor-glow"></div>
 
 <!-- ======================================================
      NAVBAR
@@ -1169,6 +1185,12 @@ function showStatus(msg, type){
   cfStatus.textContent = msg;
   cfStatus.className = 'form-status show ' + type;
 }
+const glow = document.getElementById("cursorGlow");
+
+document.addEventListener("mousemove", (e) => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+});
 </script>
 
 </body>
