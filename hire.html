@@ -179,33 +179,10 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
 .to-top.show{opacity:1;pointer-events:auto;transform:translateY(0);}
 
 @media (max-width:640px){section{padding:70px 0;}}
-.cursor-glow{
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(
-        circle,
-        rgba(0,255,255,.35) 0%,
-        rgba(0,180,255,.18) 25%,
-        rgba(99,0,205,.12) 50%,
-        transparent 75%
-    );
-    filter: blur(70px);
-    mix-blend-mode: screen;
-    opacity: .9;
-    z-index: 9999;
-}
 </style>
 </head>
 
 <body>
-
-<div id="cursorGlow" class="cursor-glow"></div>
 
 <header class="navbar" id="navbar">
   <div class="container nav-inner">
@@ -391,29 +368,6 @@ function showStatus(msg, type){
   cfStatus.textContent = msg;
   cfStatus.className = 'form-status show ' + type;
 }
-const glow = document.getElementById("cursorGlow");
-
-let mouseX = 0;
-let mouseY = 0;
-let currentX = 0;
-let currentY = 0;
-
-document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
-
-function animateGlow() {
-    currentX += (mouseX - currentX) * 0.12;
-    currentY += (mouseY - currentY) * 0.12;
-
-    glow.style.left = currentX + "px";
-    glow.style.top = currentY + "px";
-
-    requestAnimationFrame(animateGlow);
-}
-
-animateGlow();
 </script>
 
 </body>
