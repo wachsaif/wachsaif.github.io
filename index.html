@@ -596,6 +596,22 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
     z-index: 0;
 }
 </style>
+<style id="portfolio-project-overrides">
+.portfolio-grid{align-items:start;}
+.portfolio-card{aspect-ratio:auto!important;height:auto;background:rgba(255,255,255,.92);border:1px solid rgba(52,0,125,.12);box-shadow:0 14px 34px rgba(36,17,67,.08);cursor:default;}
+.portfolio-card .portfolio-media{background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:12px;min-height:260px;}
+.portfolio-card .portfolio-media img{width:100%;height:auto;max-height:560px;object-fit:contain;display:block;transition:transform .5s ease;}
+.portfolio-card:hover .portfolio-media img{transform:scale(1.02);}
+.portfolio-content{padding:18px 18px 20px;}
+.portfolio-content .tag{display:block;font-size:12px;color:var(--accent,#00b7a8);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px;}
+.portfolio-content h4{font-size:18px;line-height:1.35;margin:0 0 9px;color:var(--text,#160b2e);}
+.portfolio-content p{font-size:13px;line-height:1.65;margin:0 0 15px;color:rgba(22,11,46,.72);}
+.portfolio-content .portfolio-links{display:flex;gap:10px;}
+.portfolio-content .portfolio-links a{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--primary,#34007D),var(--secondary,#6300CD));color:#fff;text-decoration:none;box-shadow:0 8px 18px rgba(52,0,125,.18);transition:transform .2s ease,box-shadow .2s ease;}
+.portfolio-content .portfolio-links a:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(52,0,125,.28);}
+@media(max-width:900px){.portfolio-grid{grid-template-columns:repeat(2,1fr)!important;}}
+@media(max-width:620px){.portfolio-grid{grid-template-columns:1fr!important;}.portfolio-card .portfolio-media{min-height:220px;}}
+</style>
 </head>
 
 <body>
@@ -972,12 +988,12 @@ const SITE_DATA = {
 };
 
 const PORTFOLIO_ITEMS = [
-  { title:"Brand Identity — Aurora Cafe", category:"design", tag:"Graphic Design", image:"https://via.placeholder.com/500x375/34007D/FFFFFF?text=Project+1", live:"#", details:"#" },
-  { title:"E-commerce Website", category:"web", tag:"Web Development", image:"https://via.placeholder.com/500x375/6300CD/FFFFFF?text=Project+2", live:"#", details:"#" },
-  { title:"SEO Growth Campaign", category:"seo", tag:"SEO & Marketing", image:"https://via.placeholder.com/500x375/150A2E/00E0C6?text=Project+3", live:"#", details:"#" },
-  { title:"T-shirt Design Collection", category:"design", tag:"Graphic Design", image:"https://via.placeholder.com/500x375/34007D/FFFFFF?text=Project+4", live:"#", details:"#" },
-  { title:"Portfolio Website Build", category:"web", tag:"Web Development", image:"https://via.placeholder.com/500x375/6300CD/FFFFFF?text=Project+5", live:"#", details:"#" },
-  { title:"Local Business SEO", category:"seo", tag:"SEO & Marketing", image:"https://via.placeholder.com/500x375/150A2E/00E0C6?text=Project+6", live:"#", details:"#" },
+  { title:"Commercial & Residential Services Flyer", category:"design", tag:"Graphic Design", image:"Assets/Flyer-Design-WachSaif.jpg", alt:"Commercial and residential services flyer design by Wach Saif", description:"Professional commercial and residential services flyer design featuring business development, digital marketing, and service-focused visual communication.", live:"Assets/Flyer-Design-WachSaif.jpg", details:"Assets/Flyer-Design-WachSaif.jpg" },
+  { title:"Special Fresh Food Flyer Design", category:"design", tag:"Graphic Design", image:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg", alt:"Special fresh food promotional flyer design by Wach Saif", description:"Creative fresh food promotional flyer design with food photography, pricing highlights, delivery details, and a bold restaurant marketing layout.", live:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg", details:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg" },
+  { title:"Digital Marketing Expert Flyer", category:"design", tag:"Graphic Design", image:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg", alt:"Digital marketing expert promotional flyer design by Wach Saif", description:"Modern digital marketing flyer design focused on creative business services, value propositions, and professional promotional messaging.", live:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg", details:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg" },
+  { title:"Business Card Design — Hall Harris", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", alt:"Hall Harris executive director business card design by Wach Saif, front and back", description:"Professional executive business card design for Hall Harris, combining clean typography, blue geometric branding, contact information, and a matching reverse side.", live:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner.pdf" },
+  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", alt:"Wach Saif professional business card design, front and back", description:"Professional personal business card design for Wach Saif featuring graphic design, WordPress, SEO, and digital marketing services with a coordinated front and back layout.", live:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Best-Designer.pdf" },
+  { title:"Business Card Design — Client Satisfaction", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", alt:"Client satisfaction business card design by Wach Saif, front and back", description:"Clean professional business card design featuring the Client Satisfaction message, strong contrast, modern red accents, and a coordinated front and back presentation.", live:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif.pdf" },
 ];
 
 /* ============================================================
@@ -996,13 +1012,16 @@ function renderPortfolio(filter){
     const card = document.createElement('div');
     card.className = 'portfolio-card reveal reveal-delay-' + ((idx % 3) + 1);
     card.innerHTML = `
-      <img src="${item.image}" alt="${item.title}" loading="lazy" width="500" height="375">
-      <div class="portfolio-overlay">
+      <div class="portfolio-media">
+        <img src="${item.image}" alt="${item.alt}" title="${item.title}" loading="lazy">
+      </div>
+      <div class="portfolio-content">
         <span class="tag">${item.tag}</span>
         <h4>${item.title}</h4>
+        <p>${item.description}</p>
         <div class="portfolio-links">
-          <a href="${item.live}" target="_blank" rel="noopener" aria-label="Live preview of ${item.title}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          <a href="${item.details}" target="_blank" rel="noopener" aria-label="Details for ${item.title}"><i class="fa-solid fa-info"></i></a>
+          <a href="${item.live}" target="_blank" rel="noopener" aria-label="View ${item.title}" title="View project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <a href="${item.details}" target="_blank" rel="noopener" aria-label="Open ${item.title} details" title="Open project details"><i class="fa-solid fa-circle-info"></i></a>
         </div>
       </div>`;
     grid.appendChild(card);
