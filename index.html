@@ -10,13 +10,13 @@
 <meta name="keywords" content="Wach Saif, Graphic Designer, Web Developer, SEO Expert, Digital Marketing, Freelancer Bangladesh, Dhaka Designer, Logo Design, Website Design">
 <meta name="author" content="Wach Saif">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www. wachsaif.github.io/">
+<link rel="canonical" href="https://www.wachsaif.github.io/">
 
 <!-- ============ OPEN GRAPH (Facebook/LinkedIn share preview) ============ -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Wach Saif | Graphic Designer, Web Developer & SEO Expert">
 <meta property="og:description" content="Professional Graphic Design, Web Development, SEO & Digital Marketing services. 5+ years experience, 169+ clients served.">
-<meta property="og:image" content="https://www. wachsaif.github.io/assets/og-cover.jpg">
+<meta property="og:image" content="https://www.wachsaif.github.io/assets/og-cover.jpg">
 <meta property="og:url" content="https://www. wachsaif.github.io/">
 <meta property="og:site_name" content="Wach Saif Portfolio">
 
@@ -24,10 +24,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Wach Saif | Graphic Designer, Web Developer & SEO Expert">
 <meta name="twitter:description" content="Professional Graphic Design, Web Development, SEO & Digital Marketing services in Dhaka, Bangladesh.">
-<meta name="twitter:image" content="https://www. wachsaif.github.io/assets/og-cover.jpg">
+<meta name="twitter:image" content="https://www.wachsaif.github.io/assets/og-cover.jpg">
 
 <!-- ============ FAVICON ============ -->
-<link rel="icon" type="image/png" href="https://via.placeholder.com/32/34007D/FFFFFF?text=WS">
 
 <!-- ============ SCHEMA.ORG JSON-LD (Person + Service) ============ -->
 <script type="application/ld+json">
@@ -488,15 +487,17 @@ section{padding:120px 0;position:relative;}
 /* ============================================
    TESTIMONIALS
    ============================================ */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.testi-card{padding:32px;border-radius:var(--radius);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;}
+.testi-card{padding:32px;border-radius:var(--radius);display:flex;flex-direction:column;height:100%;}
+.testi-card p{flex:1;}
 .testi-stars{color:#FFB100;font-size:14px;margin-bottom:16px;}
 .testi-card p{color:var(--text-muted);font-size:14.5px;margin-bottom:22px;}
 .testi-person{display:flex;align-items:center;gap:12px;}
 .testi-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;}
 .testi-person strong{font-size:14px;display:block;}
 .testi-person span{font-size:12px;color:var(--text-muted);}
-@media (max-width:940px){.testi-grid{grid-template-columns:1fr;}}
+@media (max-width:940px){.testi-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:600px){.testi-grid{grid-template-columns:1fr;}}
 
 /* ============================================
    HIRE ME (highlighted CTA section)
@@ -807,6 +808,8 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
     <h2 class="section-title reveal">What clients say</h2>
     <p class="section-sub reveal">A few words from clients I've worked with — real feedback, real projects.</p>
 
+    <div class="testi-grid" id="testimonialsGrid">
+
     <div class="testi-card glass reveal">
   <div class="testi-stars">★★★★★</div>
 
@@ -876,6 +879,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
     </div>
   </div>
 </div>
+  </div>
 </section>
 
 <!-- ======================================================
@@ -1027,9 +1031,9 @@ const PORTFOLIO_ITEMS = [
   { title:"Commercial & Residential Services Flyer", category:"design", tag:"Flyer Design", image:"Assets/Flyer-Design-WachSaif.jpg", alt:"Commercial and residential services flyer design by Wach Saif", live:"Assets/Flyer-Design-WachSaif.jpg", details:"Assets/Flyer-Design-WachSaif.jpg" },
   { title:"Fresh Food Promotional Flyer Design", category:"design", tag:"Flyer Design", image:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg", alt:"Fresh food promotional flyer design by Wach Saif", live:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg", details:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg" },
   { title:"Digital Marketing Expert Flyer", category:"design", tag:"Flyer Design", image:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg", alt:"Digital marketing expert promotional flyer design by Wach Saif", live:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg", details:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg" },
-  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif.pdf" },
-  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Best-Designer.pdf" },
-  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner.pdf" },
+  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg" },
+  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg" },
+  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg" },
 ];
 
 /* ============================================================
