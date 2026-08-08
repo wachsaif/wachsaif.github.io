@@ -226,24 +226,39 @@ section{padding:100px 0;position:relative;}
    PORTFOLIO GRID (full gallery)
    ============================================ */
 .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-.portfolio-card{border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:4/3;cursor:pointer;}
-.portfolio-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s var(--transition);}
-.portfolio-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(0deg,rgba(36,17,67,0.95) 0%,rgba(36,17,67,0.3) 55%,transparent 100%);
-  display:flex;flex-direction:column;justify-content:flex-end;padding:26px;
-  transform:translateY(60%);opacity:0;transition:transform 0.5s var(--transition), opacity 0.5s var(--transition);
+ .portfolio-card{
+  border-radius:var(--radius);overflow:hidden;position:relative;background:#fff;border:1px solid var(--surface-border);
+  box-shadow:0 10px 30px rgba(52,0,125,0.08);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
 }
-.portfolio-card:hover .portfolio-overlay{transform:translateY(0);opacity:1;}
-.portfolio-card:hover img{transform:scale(1.08);}
-.portfolio-overlay .tag{font-size:12px;color:#7CE8DA;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
-.portfolio-overlay h4{font-size:18px;margin-bottom:14px;color:#fff;}
+.portfolio-card:hover{transform:translateY(-6px);box-shadow:0 18px 42px rgba(52,0,125,0.16);border-color:rgba(99,0,205,.22);}
+.portfolio-media{position:relative;overflow:hidden;background:#f7f5fc;}
+.portfolio-card img{width:100%;height:auto;display:block;object-fit:contain;transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .35s ease;}
+.portfolio-media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(135deg,rgba(99,0,205,0.10),transparent 45%,rgba(0,168,150,0.08));
+  opacity:0;transition:opacity .35s ease;
+}
+.portfolio-card:hover img{transform:scale(1.035);filter:saturate(1.04) contrast(1.02);}
+.portfolio-card:hover .portfolio-media::after{opacity:1;}
+.portfolio-hover{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:flex-end;padding:16px;opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease;z-index:2;background:linear-gradient(180deg,rgba(36,17,67,.22),transparent 35%);}
+.portfolio-card:hover .portfolio-hover{opacity:1;transform:translateY(0);}
+.portfolio-meta{padding:18px 18px 20px;background:#fff;}
+.portfolio-meta .tag{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px;display:block;}
+.portfolio-meta h4{font-size:18px;line-height:1.35;margin:0;color:var(--text-main);}
 .portfolio-links{display:flex;gap:10px;}
 .portfolio-links a{
-  width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;
-  background:rgba(255,255,255,0.18);backdrop-filter:blur(6px);color:#fff;transition:var(--transition);
+  width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;
+  background:linear-gradient(135deg,var(--secondary),var(--primary));color:#fff;border:1px solid rgba(255,255,255,.42);
+  box-shadow:0 8px 24px rgba(52,0,125,.28);backdrop-filter:blur(8px);
+  transition:var(--transition);position:relative;
 }
-.portfolio-links a:hover{background:var(--accent);color:#fff;}
+.portfolio-links a:hover{background:var(--accent);color:var(--bg-dark);transform:translateY(-3px) scale(1.08);}
+.portfolio-links a::after{
+  content:attr(data-tooltip);position:absolute;right:0;top:calc(100% + 8px);
+  background:var(--text-main);color:#fff;font-size:11px;font-weight:600;white-space:nowrap;padding:6px 9px;border-radius:7px;
+  opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .2s ease,transform .2s ease;
+}
+.portfolio-links a:hover::after{opacity:1;transform:translateY(0);}
 @media (max-width:940px){.portfolio-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:600px){.portfolio-grid{grid-template-columns:1fr;}}
 
@@ -458,15 +473,12 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
    as you like — this page shows the full set with pagination.
    ============================================================ */
 const PORTFOLIO_ITEMS = [
-  { title:"Brand Identity — Aurora Cafe", category:"design", tag:"Graphic Design", image:"https://via.placeholder.com/500x375/34007D/FFFFFF?text=Project+1", live:"#", details:"#" },
-  { title:"E-commerce Website", category:"web", tag:"Web Development", image:"https://via.placeholder.com/500x375/6300CD/FFFFFF?text=Project+2", live:"#", details:"#" },
-  { title:"SEO Growth Campaign", category:"seo", tag:"SEO & Marketing", image:"https://via.placeholder.com/500x375/150A2E/00A896?text=Project+3", live:"#", details:"#" },
-  { title:"T-shirt Design Collection", category:"design", tag:"Graphic Design", image:"https://via.placeholder.com/500x375/34007D/FFFFFF?text=Project+4", live:"#", details:"#" },
-  { title:"Portfolio Website Build", category:"web", tag:"Web Development", image:"https://via.placeholder.com/500x375/6300CD/FFFFFF?text=Project+5", live:"#", details:"#" },
-  { title:"Local Business SEO", category:"seo", tag:"SEO & Marketing", image:"https://via.placeholder.com/500x375/150A2E/00A896?text=Project+6", live:"#", details:"#" },
-  { title:"Restaurant Menu & Branding", category:"design", tag:"Graphic Design", image:"https://via.placeholder.com/500x375/34007D/FFFFFF?text=Project+7", live:"#", details:"#" },
-  { title:"SaaS Landing Page", category:"web", tag:"Web Development", image:"https://via.placeholder.com/500x375/6300CD/FFFFFF?text=Project+8", live:"#", details:"#" },
-  { title:"Content & Keyword Strategy", category:"seo", tag:"SEO & Marketing", image:"https://via.placeholder.com/500x375/150A2E/00A896?text=Project+9", live:"#", details:"#" },
+  { title:"Commercial & Residential Services Flyer", category:"design", tag:"Flyer Design", image:"Assets/Flyer-Design-WachSaif.jpg", alt:"Commercial and residential services flyer design by Wach Saif", live:"Assets/Flyer-Design-WachSaif.jpg", details:"Assets/Flyer-Design-WachSaif.jpg" },
+  { title:"Fresh Food Promotional Flyer Design", category:"design", tag:"Flyer Design", image:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg", alt:"Fresh food promotional flyer design by Wach Saif", live:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg", details:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg" },
+  { title:"Digital Marketing Expert Flyer", category:"design", tag:"Flyer Design", image:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg", alt:"Digital marketing expert promotional flyer design by Wach Saif", live:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg", details:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg" },
+  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif.pdf" },
+  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Best-Designer.pdf" },
+  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner.pdf" },
 ];
 
 const PAGE_SIZE = 6;
@@ -494,14 +506,18 @@ function renderPortfolio(){
     const card = document.createElement('div');
     card.className = 'portfolio-card reveal reveal-delay-' + ((idx % 3) + 1);
     card.innerHTML = `
-      <img src="${item.image}" alt="${item.title}" loading="lazy" width="500" height="375">
-      <div class="portfolio-overlay">
+      <div class="portfolio-media">
+        <img src="${item.image}" alt="${item.alt}" loading="lazy">
+        <div class="portfolio-hover">
+          <div class="portfolio-links">
+            <a href="${item.live}" target="_blank" rel="noopener" aria-label="Open project: ${item.title}" data-tooltip="Open project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="${item.details}" target="_blank" rel="noopener" aria-label="View details: ${item.title}" data-tooltip="View details"><i class="fa-solid fa-info"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-meta">
         <span class="tag">${item.tag}</span>
         <h4>${item.title}</h4>
-        <div class="portfolio-links">
-          <a href="${item.live}" target="_blank" rel="noopener" aria-label="Live preview of ${item.title}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          <a href="${item.details}" target="_blank" rel="noopener" aria-label="Details for ${item.title}"><i class="fa-solid fa-info"></i></a>
-        </div>
       </div>`;
     grid.appendChild(card);
   });
