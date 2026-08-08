@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="Assets/wach-saif-logo-favicon.png">
+
 <!-- ============ SEO META TAGS ============ -->
 <title>Wach Saif | Graphic Designer, Web Developer & SEO Expert in Dhaka</title>
 <meta name="description" content="Wach Saif is a professional Graphic Designer, Web Developer, and SEO & Digital Marketing expert based in Dhaka, Bangladesh, with 5+ years of experience serving 169+ clients worldwide.">
@@ -27,7 +27,8 @@
 <meta name="twitter:image" content="https://www. wachsaif.github.io/assets/og-cover.jpg">
 
 <!-- ============ FAVICON ============ -->
-<link rel="icon" type="image/png" href="https://via.placeholder.com/32/34007D/FFFFFF?text=WS">
+<link rel="icon" type="image/png" sizes="512x512" href="Assets/wach-saif-favicon-512x512.png">
+<link rel="apple-touch-icon" sizes="512x512" href="Assets/wach-saif-favicon-512x512.png">
 
 <!-- ============ SCHEMA.ORG JSON-LD (Person + Service) ============ -->
 <script type="application/ld+json">
@@ -488,15 +489,16 @@ section{padding:120px 0;position:relative;}
 /* ============================================
    TESTIMONIALS
    ============================================ */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.testi-card{padding:32px;border-radius:var(--radius);}
-.testi-stars{color:#FFB100;font-size:14px;margin-bottom:16px;}
-.testi-card p{color:var(--text-muted);font-size:14.5px;margin-bottom:22px;}
-.testi-person{display:flex;align-items:center;gap:12px;}
-.testi-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:stretch;}
+.testi-card{padding:30px;border-radius:var(--radius);display:flex;flex-direction:column;height:100%;box-sizing:border-box;}
+.testi-stars{color:#FFB100;font-size:14px;letter-spacing:1px;margin-bottom:16px;}
+.testi-card p{color:var(--text-muted);font-size:14px;line-height:1.7;margin:0 0 22px;flex:1;}
+.testi-person{display:flex;align-items:center;gap:12px;margin-top:auto;}
+.testi-avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(99,0,205,.18);flex:0 0 48px;}
 .testi-person strong{font-size:14px;display:block;}
-.testi-person span{font-size:12px;color:var(--text-muted);}
-@media (max-width:940px){.testi-grid{grid-template-columns:1fr;}}
+.testi-person span{font-size:12px;color:var(--text-muted);display:block;margin-top:3px;}
+@media (max-width:940px){.testi-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:640px){.testi-grid{grid-template-columns:1fr;}}
 
 /* ============================================
    HIRE ME (highlighted CTA section)
@@ -807,75 +809,37 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
     <h2 class="section-title reveal">What clients say</h2>
     <p class="section-sub reveal">A few words from clients I've worked with — real feedback, real projects.</p>
 
-    <div class="testi-card glass reveal">
-  <div class="testi-stars">★★★★★</div>
+    <div class="testi-grid" id="testimonialsGrid">
 
-  <p>
-    “Saif was professional, responsive, and attentive to every detail.
-    He understood my vision perfectly and delivered an excellent result.
-    Highly recommended.”
-  </p>
+      <div class="testi-card glass reveal">
+        <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>“Saif was professional, responsive, and attentive to every detail. He understood my vision perfectly and delivered an excellent result. Highly recommended.”</p>
+        <div class="testi-person">
+          <img class="testi-avatar" src="Assets/client-1.jpg" alt="Bruno Cariello, Marketing Lead and client of Wach Saif" loading="lazy" width="48" height="48">
+          <div><strong>Bruno Cariello</strong><span>Marketing Lead</span></div>
+        </div>
+      </div>
 
-  <div class="testi-person">
-    <img
-      class="testi-avatar"
-      src="Assets/client-1.jpg"
-      alt="Bruno Cariello testimonial client"
-      loading="lazy"
-    >
-    <div>
-      <strong>Bruno Cariello</strong>
-      <span>Marketing Lead</span>
+      <div class="testi-card glass reveal reveal-delay-1">
+        <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>“Saif’s SEO work noticeably improved our website’s search ranking within weeks. Professional, reliable, and great to work with.”</p>
+        <div class="testi-person">
+          <img class="testi-avatar" src="Assets/client-2.jpg" alt="Mariano Casarini, Startup Founder and SEO client of Wach Saif" loading="lazy" width="48" height="48">
+          <div><strong>Mariano Casarini</strong><span>Startup Founder</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card glass reveal reveal-delay-2">
+        <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>“Saif is fast, professional, and easy to work with. He communicated clearly throughout the project and delivered excellent results. Highly recommended.”</p>
+        <div class="testi-person">
+          <img class="testi-avatar" src="Assets/client-3.jpg" alt="Leonardo Andres Silva, CEO of Lewxa and client of Wach Saif" loading="lazy" width="48" height="48">
+          <div><strong>Leonardo Andres Silva</strong><span>CEO of Lewxa</span></div>
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
-
-
-<div class="testi-card glass reveal reveal-delay-1">
-  <div class="testi-stars">★★★★★</div>
-
-  <p>
-    “Saif’s SEO work noticeably improved our website’s search ranking
-    within weeks. Professional, reliable, and great to work with.”
-  </p>
-
-  <div class="testi-person">
-    <img
-      class="testi-avatar"
-      src="Assets/client-2.jpg"
-      alt="Mariano Casarini testimonial client"
-      loading="lazy"
-    >
-    <div>
-      <strong>Mariano Casarini</strong>
-      <span>Startup Founder</span>
-    </div>
-  </div>
-</div>
-
-
-<div class="testi-card glass reveal reveal-delay-2">
-  <div class="testi-stars">★★★★★</div>
-
-  <p>
-    “Saif is fast, professional, and easy to work with.
-    He communicated clearly throughout the project and delivered
-    excellent results. Highly recommended.”
-  </p>
-
-  <div class="testi-person">
-    <img
-      class="testi-avatar"
-      src="Assets/client-3.jpg"
-      alt="Leonardo Andres Silva testimonial client"
-      loading="lazy"
-    >
-    <div>
-      <strong>Leonardo Andres Silva</strong>
-      <span>CEO of Lewxa</span>
-    </div>
-  </div>
-</div>
 </section>
 
 <!-- ======================================================
