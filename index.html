@@ -595,26 +595,10 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   section{padding:52px 0;}
   .hire-section{margin:0 12px;padding:56px 24px;}
 }
-.cursor-glow{
-    position: fixed;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle,
-        rgba(99,0,205,.28) 0%,
-        rgba(99,0,205,.12) 35%,
-        transparent 70%);
-    filter: blur(20px);
-    z-index: 0;
-}
 </style>
 </head>
 
 <body>
-
-<div id="cursorGlow" class="cursor-glow"></div>
 
 <!-- ======================================================
      NAVBAR
@@ -752,56 +736,6 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
     </div>
   </div>
 </section>
-
-<!-- ======================================================
-     ABOUT
-====================================================== -->
-<section id="about">
-  <div class="container about-grid">
-    <div class="about-photo reveal">
-      <img src="wach-saif-graphic-designer-dhaka.png" alt="Wach Saif — Graphic Designer and Web Developer in Dhaka, Bangladesh" loading="lazy" width="450" height="600">
-      <div class="about-badge glass">
-        <i class="fa-solid fa-certificate"></i>
-        <div><strong>5+ Years</strong><span>Professional Experience</span></div>
-      </div>
-    </div>
-    <div class="about-text">
-      <span class="eyebrow reveal">About Me</span>
-      <h2 class="section-title reveal">Designing and building with purpose</h2>
-      <div class="reveal reveal-delay-1" id="aboutParagraphs">
-        <p>I'm Wach Saif, a graphic designer, web developer, and SEO &amp; digital marketing specialist based in Dhaka, Bangladesh. Over the past 5+ years I've worked with 169+ clients, helping them turn ideas into brands and websites that actually perform.</p>
-        <p>I care about the details others skip — clean code, fast load times, and design that's built to convert, not just look good. Whether it's a logo, a full website, or a search strategy, I bring the same standard to every project.</p>
-      </div>
-
-      <div class="skills-list reveal reveal-delay-2" id="skillsList">
-        <div class="skill-row">
-          <div class="skill-top"><span>Graphic Design</span><span>95%</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-top"><span>Web Development</span><span>90%</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-top"><span>SEO</span><span>92%</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-width="92%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-top"><span>Digital Marketing</span><span>88%</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-width="88%"></div></div>
-        </div>
-      </div>
-
-      <div class="tools-row reveal reveal-delay-3" id="toolsRow">
-  <span class="tool-chip glass"><i class="fa-solid fa-pen-nib"></i> Adobe Illustrator</span>
-  <span class="tool-chip glass"><i class="fa-solid fa-image"></i> Adobe Photoshop</span>
-  <span class="tool-chip glass"><i class="fa-solid fa-swatchbook"></i> Canva</span>
-  <span class="tool-chip glass"><i class="fa-solid fa-file-word"></i> MS Office</span>
-</div>
-    </div>
-  </div>
-</section>
-
 <!-- ======================================================
      TESTIMONIALS
 ====================================================== -->
@@ -1250,12 +1184,6 @@ function showStatus(msg, type){
   cfStatus.textContent = msg;
   cfStatus.className = 'form-status show ' + type;
 }
-const glow = document.getElementById("cursorGlow");
-
-document.addEventListener("mousemove", (e) => {
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-});
 </script>
 
 </body>
