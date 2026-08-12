@@ -349,7 +349,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
       <a href="index.html#services">Service</a>
       <a href="portfolio.html" class="current">Portfolio</a>
       <a href="about.html">About</a>
-      <a href="index.html#hire" class="nav-cta">Hire Me</a>
+      <a href="./hire.html" class="nav-cta">Hire Me</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <i class="fa-solid fa-bars"></i>
@@ -362,7 +362,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   <a href="index.html#services">Service</a>
   <a href="portfolio.html">Portfolio</a>
   <a href="about.html">About</a>
-  <a href="index.html#hire" class="nav-cta">Hire Me</a>
+  <a href="./hire.html" class="nav-cta">Hire Me</a>
 </div>
 
 <!-- ======================================================
@@ -471,14 +471,22 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
    Keep this array identical to PORTFOLIO_ITEMS on index.html if you
    want both pages to stay in sync; add as many extra projects here
    as you like — this page shows the full set with pagination.
+
+   FIX (i / details icon 404): the "details" field for the business
+   card items pointed to .pdf files (e.g. Business-Card-Design-by-
+   WachSaif.pdf) that don't exist in the Assets folder yet, so the
+   info icon 404'd. "details" now points to the same image as
+   "live" for those items. If you DO create real PDF spec sheets
+   later and upload them to Assets/, just swap the "details" value
+   for that item back to the matching .pdf filename.
    ============================================================ */
 const PORTFOLIO_ITEMS = [
   { title:"Commercial & Residential Services Flyer", category:"design", tag:"Flyer Design", image:"Assets/Flyer-Design-WachSaif.jpg", alt:"Commercial and residential services flyer design by Wach Saif", live:"Assets/Flyer-Design-WachSaif.jpg", details:"Assets/Flyer-Design-WachSaif.jpg" },
   { title:"Fresh Food Promotional Flyer Design", category:"design", tag:"Flyer Design", image:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg", alt:"Fresh food promotional flyer design by Wach Saif", live:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg", details:"Assets/Flyer-Design-Best-Designer-WachSaif.jpg" },
   { title:"Digital Marketing Expert Flyer", category:"design", tag:"Flyer Design", image:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg", alt:"Digital marketing expert promotional flyer design by Wach Saif", live:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg", details:"Assets/Flyer-Design-WachSaif-Graphic-Designer.jpg" },
-  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif.pdf" },
-  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Best-Designer.pdf" },
-  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner.pdf" },
+  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-front-back.jpg" },
+  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Best-Designer-front-back.jpg" },
+  { title:"Business Card Design — Wach Saif", category:"design", tag:"Business Card Design", image:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", alt:"Professional business card design by Wach Saif", live:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg", details:"Assets/Business-Card-Design-by-WachSaif-Graphic-Desihner-front-back.jpg" },
 ];
 
 const PAGE_SIZE = 6;
