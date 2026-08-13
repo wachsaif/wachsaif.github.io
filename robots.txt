@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wachsaif.github.io/sitemap.xml
