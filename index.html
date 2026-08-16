@@ -605,6 +605,39 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
 @media (max-width:400px){
   .hero h1{font-size:32px;}
 }
+
+/* ============================================
+   MOBILE-FRIENDLY FIXES
+   ============================================ */
+@media (max-width:940px){
+  /* floating badge cards on the hero photo overflow the viewport at
+     narrow widths because they're positioned with negative left/right % */
+  .fc-1,.fc-2{display:none;}
+}
+@media (max-width:768px){
+  .container{padding:0 18px;}
+
+  /* same bug class as hire.html: grid children refuse to shrink below
+     their content width by default, which pushed the form off-screen —
+     min-width:0 lets the 1fr column actually collapse */
+  .contact-grid,.contact-form,.contact-info-card{min-width:0;max-width:100%;}
+  .contact-form *{max-width:100%;}
+
+  .form-group input,.form-group select,.form-group textarea{padding:11px 14px;font-size:14px;}
+  .form-group textarea{min-height:100px;}
+
+  .map-wrap{height:260px;}
+
+  .footer-top{flex-direction:column;align-items:flex-start;gap:20px;}
+  .to-top{bottom:20px;right:16px;width:44px;height:44px;}
+}
+@media (max-width:420px){
+  .hero h1{font-size:28px;}
+  .hero p.lead{font-size:16px;}
+  .hero-photo-frame{width:220px;height:260px;}
+  .stat-num{font-size:26px;}
+  .footer-links{gap:14px 18px;font-size:13px;}
+}
 </style>
 <meta name="google-site-verification" content="pq5WA8MDuUntaZS--P_E8Z--59fNEvkdpD_-gaVFkoY" />
 <script type="application/ld+json">
