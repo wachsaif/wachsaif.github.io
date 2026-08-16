@@ -196,6 +196,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   "description": "Get in touch with Wach Saif for freelance graphic design, web development, or SEO services. Available for worldwide remote projects."
 }
 </script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body>
@@ -258,6 +259,11 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
         </div>
         <div class="form-row">
           <div class="form-group full"><label for="cf-message">Message</label><textarea id="cf-message" name="message" required placeholder="Tell me a bit about your project..."></textarea></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAERVHCeZJD8mlHGW" data-theme="light"></div>
+          </div>
         </div>
         <button type="submit" class="btn btn-primary form-submit" id="cfSubmitBtn"><i class="fa-solid fa-paper-plane"></i> <span id="cfSubmitText">Send Message</span></button>
         <div class="form-status" id="cfStatus"></div>
@@ -359,11 +365,13 @@ contactForm.addEventListener('submit', async (e) => {
   const country = contactForm.country.value.trim();
   const message = contactForm.message.value.trim();
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const turnstileToken = (typeof turnstile !== 'undefined') ? turnstile.getResponse() : document.querySelector('.cf-turnstile textarea[name="cf-turnstile-response"]')?.value;
 
   cfStatus.classList.remove('show','success','error');
 
   if(!name || !email || !country || !message){ showStatus('Please fill in all fields.', 'error'); return; }
   if(!emailPattern.test(email)){ showStatus('Please enter a valid email address.', 'error'); return; }
+  if(!turnstileToken){ showStatus('Please complete the verification checkbox before sending.', 'error'); return; }
   if(SITE_DATA.googleScriptURL.includes('PASTE_YOUR')){ showStatus('Form endpoint not configured yet — add your Google Script URL in SITE_DATA.', 'error'); return; }
 
   cfSubmitBtn.disabled = true;
@@ -371,10 +379,11 @@ contactForm.addEventListener('submit', async (e) => {
   try {
     await fetch(SITE_DATA.googleScriptURL, {
       method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, country, message, page: 'Hire Me' })
+      body: JSON.stringify({ name, email, country, message, page: 'Hire Me', turnstileToken })
     });
     showStatus('Thanks! Your message has been sent — I\'ll get back to you within 24 hours.', 'success');
     contactForm.reset();
+    if(typeof turnstile !== 'undefined'){ turnstile.reset(); }
   } catch (err) {
     showStatus('Something went wrong. Please try again or email me directly.', 'error');
   } finally {
