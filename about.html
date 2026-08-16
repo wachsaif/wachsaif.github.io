@@ -193,6 +193,33 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
 .to-top.show{opacity:1;pointer-events:auto;transform:translateY(0);}
 
 @media (max-width:640px){section{padding:48px 0;}.hire-section{padding:40px 24px;}}
+
+/* ============================================
+   MOBILE-FRIENDLY FIXES
+   ============================================ */
+@media (max-width:768px){
+  .container{padding:0 18px;}
+  .about-grid{gap:32px;}
+  .about-badge{padding:13px 16px;gap:10px;left:14px;right:14px;bottom:14px;}
+  .about-badge i{font-size:20px;}
+  .about-badge strong{font-size:13.5px;}
+  .about-badge span{font-size:11px;}
+
+  .timeline{gap:0;}
+  .timeline-item{gap:16px;padding-bottom:34px;}
+  .timeline::before{left:15px;}
+  .timeline-dot{width:32px;height:32px;font-size:13px;}
+  .timeline-content h4{font-size:15px;}
+  .timeline-content p{font-size:13.5px;}
+
+  .value-card{padding:24px;}
+  .footer-top{flex-direction:column;align-items:flex-start;gap:20px;}
+  .to-top{bottom:20px;right:16px;width:44px;height:44px;}
+}
+@media (max-width:420px){
+  .about-badge{position:static;margin-top:14px;background:var(--surface);}
+  .footer-links{gap:14px 18px;font-size:13px;}
+}
 </style>
 <script type="application/ld+json">
 {
