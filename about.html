@@ -4,23 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="Assets/wach-saif-logo-favicon.png">
-<title>About Wach Saif — Designer & Developer in Kushtia</title>
-<meta name="description" content="Meet Wach Saif, a Kushtia-based graphic designer, web developer, and SEO specialist with 5+ years of experience helping 169+ clients grow their brands.">
-<meta name="keywords" content="About Wach Saif, Wach Saif Kushtia, Graphic Designer Bangladesh, Web Developer Kushtia, SEO Specialist, Freelancer Profile">
+<title>About Wach Saif — Best Graphic Designer & SEO Expert in Kushtia</title>
+<meta name="description" content="Wach Saif is a Kushtia-based graphic designer, WordPress developer, and SEO expert with 150+ projects completed for clients across the USA and beyond since 2022. See his story, skills, and education.">
+<meta name="keywords" content="Wach Saif, Wach Saif Graphic Designer, Best Graphic Designer Kushtia, Wach Saif Kushtia, Wach Saif SEO Expert, Web Developer Kushtia, WordPress Elementor Developer, Freelancer Bangladesh">
 <meta name="author" content="Wach Saif">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://wachsaif.github.io/about.html">
 
 <meta property="og:type" content="profile">
-<meta property="og:title" content="About | Wach Saif — Graphic Designer, Web Developer & SEO Specialist">
-<meta property="og:description" content="Graphic Designer, Web Developer, and SEO & Digital Marketing specialist in Kushtia, Bangladesh — 5+ years experience, 169+ clients served.">
+<meta property="og:title" content="About | Wach Saif — Best Graphic Designer & SEO Expert in Kushtia">
+<meta property="og:description" content="Graphic Designer, WordPress Developer, and SEO Expert based in Kushtia, Bangladesh — 150+ projects completed for clients across the USA since 2022.">
 <meta property="og:image" content="https://wachsaif.github.io/assets/og-cover.jpg">
 <meta property="og:url" content="https://wachsaif.github.io/about.html">
 <meta property="og:site_name" content="Wach Saif Portfolio">
+<meta property="profile:first_name" content="Wach">
+<meta property="profile:last_name" content="Saif">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About | Wach Saif">
-<meta name="twitter:description" content="Graphic Designer, Web Developer, and SEO & Digital Marketing specialist in Kushtia, Bangladesh.">
+<meta name="twitter:title" content="About | Wach Saif — Graphic Designer & SEO Expert">
+<meta name="twitter:description" content="Graphic Designer, WordPress Developer, and SEO Expert in Kushtia, Bangladesh — 150+ projects completed since 2022.">
 <meta name="twitter:image" content="https://wachsaif.github.io/assets/og-cover.jpg">
 
 <link rel="icon" type="image/png" href="https://via.placeholder.com/32/34007D/FFFFFF?text=WS">
@@ -30,13 +32,15 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Wach Saif",
-  "jobTitle": "Graphic Designer, Web Developer & SEO Specialist",
+  "jobTitle": "Graphic Designer, WordPress Developer & SEO Expert",
   "url": "https://wachsaif.github.io/about.html",
   "email": "mailto:wachsaif1@gmail.com",
   "telephone": "+8801738553992",
   "address": {"@type": "PostalAddress","addressLocality": "Kushtia","addressCountry": "Bangladesh"},
-  "knowsAbout": ["Graphic Design", "Web Development", "SEO", "Digital Marketing"],
-  "sameAs": ["https://linkedin.com/in/wachsaif"]
+  "knowsAbout": ["Graphic Design", "Web Development", "WordPress", "Elementor", "SEO", "Digital Marketing"],
+  "alumniOf": {"@type": "EducationalOrganization", "name": "National University, Bangladesh"},
+  "hasCredential": {"@type": "EducationalOccupationalCredential", "name": "E Learning and Earning", "credentialCategory": "certificate"},
+  "sameAs": ["https://linkedin.com/in/wachsaif", "https://www.behance.net/wach_saif", "https://www.facebook.com/share/18QCc19xwL/"]
 }
 </script>
 
@@ -168,6 +172,23 @@ section{padding:64px 0;position:relative;}
 .value-card p{color:var(--text-muted);font-size:13.5px;}
 @media (max-width:860px){.values-grid{grid-template-columns:1fr;}}
 
+.education-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.education-card{padding:28px 32px;border-radius:var(--radius);display:flex;gap:18px;align-items:flex-start;}
+.education-card i{font-size:24px;color:var(--secondary);margin-top:2px;flex-shrink:0;}
+.education-card h4{font-size:16px;margin-bottom:6px;}
+.education-card span{font-size:12.5px;color:var(--accent);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;display:block;margin-bottom:6px;}
+.education-card p{color:var(--text-muted);font-size:13.5px;}
+@media (max-width:860px){.education-grid{grid-template-columns:1fr;}}
+
+.faq-list{max-width:800px;display:flex;flex-direction:column;gap:14px;}
+.faq-item{border-radius:14px;overflow:hidden;}
+.faq-question{width:100%;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;text-align:left;font-size:15.5px;font-weight:600;color:var(--text-main);}
+.faq-question i{color:var(--accent);font-size:14px;transition:transform 0.3s var(--transition);flex-shrink:0;}
+.faq-item.open .faq-question i{transform:rotate(45deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s var(--transition);}
+.faq-answer-inner{padding:0 24px 20px;color:var(--text-muted);font-size:14.5px;}
+.faq-item.open .faq-answer{max-height:220px;}
+
 .hire-section{position:relative;border-radius:32px;overflow:hidden;padding:70px 40px;text-align:center;background:linear-gradient(135deg,var(--primary),var(--secondary));}
 .hire-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 30% 20%, rgba(255,255,255,0.18), transparent 45%);}
 .hire-section h2{font-size:clamp(26px,4vw,38px);font-weight:800;margin-bottom:16px;position:relative;color:#fff;}
@@ -228,7 +249,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   "mainEntity": {
     "@type": "Person",
     "name": "Wach Saif",
-    "jobTitle": "Graphic Designer, Web Developer & SEO Specialist",
+    "jobTitle": "Graphic Designer, WordPress Developer & SEO Expert",
     "url": "https://wachsaif.github.io/",
     "worksFor": {
       "@type": "Organization",
@@ -241,8 +262,36 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
     },
     "email": "wachsaif1@gmail.com",
     "telephone": "+8801738553992",
-    "description": "Freelance graphic designer, web developer, and SEO specialist based in Kushtia, Bangladesh, with over 5 years of experience serving clients worldwide."
+    "description": "Freelance graphic designer, WordPress developer, and SEO expert based in Kushtia, Bangladesh, with 150+ projects completed for clients across the USA since 2022."
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is Wach Saif?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Wach Saif is a graphic designer, WordPress developer, and SEO expert based in Kushtia, Bangladesh, who has completed 150+ projects for clients since starting in March 2022."}
+    },
+    {
+      "@type": "Question",
+      "name": "What services does Wach Saif offer?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Wach Saif offers graphic design (logos, branding), web development with WordPress and Elementor, and SEO and digital marketing services."}
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Wach Saif based and who does he work with?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Wach Saif is based in Kushtia, Bangladesh, and works with freelance clients internationally, including clients across the USA."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does Wach Saif have any certifications?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Wach Saif studies at National University, Bangladesh, and holds a certificate from E Learning and Earning."}
+    }
+  ]
 }
 </script>
 </head>
@@ -284,12 +333,12 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   <div class="container about-grid">
     <div class="about-photo reveal">
       <img src="wach-saif-graphic-designer-kushtia.png" alt="Wach Saif — Graphic Designer and Web Developer in Kushtia, Bangladesh" loading="lazy" width="450" height="600">
-      <div class="about-badge glass"><i class="fa-solid fa-certificate"></i><div><strong>5+ Years</strong><span>Professional Experience</span></div></div>
+      <div class="about-badge glass"><i class="fa-solid fa-certificate"></i><div><strong>150+ Projects</strong><span>Completed Since 2022</span></div></div>
     </div>
     <div class="about-text">
       <div class="reveal">
-        <p>I'm Wach Saif, a graphic designer, web developer, and SEO &amp; digital marketing specialist based in Kushtia, Bangladesh. Over the past 5+ years I've worked with 169+ clients, helping them turn ideas into brands and websites that actually perform.</p>
-        <p>I care about the details others skip — clean code, fast load times, and design that's built to convert, not just look good. Whether it's a logo, a full website, or a search strategy, I bring the same standard to every project.</p>
+        <p>I'm Wach Saif, a graphic designer, WordPress developer, and SEO expert based in Kushtia, Bangladesh. I started freelancing in March 2022 while studying at National University, Bangladesh, and since then I've completed 150+ projects for clients across the USA and beyond, helping them turn ideas into brands and websites that actually perform.</p>
+        <p>I care about the details others skip — clean code, fast load times, and design that's built to convert, not just look good. Whether it's a logo, a WordPress site built with Elementor, or a full SEO strategy, I bring the same standard to every project.</p>
         <p>I work with clients both through freelance platforms and directly, and I speak both Bangla and English fluently, which makes collaboration easy no matter where a client is based.</p>
       </div>
       <div class="skills-list reveal reveal-delay-1">
@@ -303,6 +352,9 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   <span class="tool-chip glass"><i class="fa-solid fa-image"></i> Adobe Photoshop</span>
   <span class="tool-chip glass"><i class="fa-solid fa-swatchbook"></i> Canva</span>
   <span class="tool-chip glass"><i class="fa-solid fa-file-word"></i> MS Office</span>
+  <span class="tool-chip glass"><i class="fa-brands fa-wordpress"></i> WordPress</span>
+  <span class="tool-chip glass"><i class="fa-solid fa-layer-group"></i> Elementor</span>
+  <span class="tool-chip glass"><i class="fa-solid fa-magnifying-glass-chart"></i> SEO Tools</span>
 </div>
     </div>
   </div>
@@ -314,10 +366,10 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
     <h2 class="section-title reveal">Experience &amp; milestones</h2>
     <p class="section-sub reveal">A quick look at how the work has grown over the last 5+ years.</p>
     <div class="timeline">
-      <div class="timeline-item reveal"><div class="timeline-dot"><i class="fa-solid fa-star"></i></div><div class="timeline-content"><span>Ongoing</span><h4>169+ Clients Served</h4><p>Delivered graphic design, web development, SEO, and marketing projects for clients across multiple industries.</p></div></div>
+      <div class="timeline-item reveal"><div class="timeline-dot"><i class="fa-solid fa-star"></i></div><div class="timeline-content"><span>Ongoing</span><h4>150+ Projects Completed</h4><p>Delivered graphic design, web development, SEO, and marketing projects for clients across the USA and beyond.</p></div></div>
       <div class="timeline-item reveal reveal-delay-1"><div class="timeline-dot"><i class="fa-solid fa-magnifying-glass-chart"></i></div><div class="timeline-content"><span>Growth</span><h4>Expanded into SEO &amp; Digital Marketing</h4><p>Added SEO and marketing services to offer clients a complete growth solution, not just design and development.</p></div></div>
-      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-dot"><i class="fa-solid fa-code"></i></div><div class="timeline-content"><span>Foundation</span><h4>Started Web Development</h4><p>Began building responsive, modern websites alongside design work.</p></div></div>
-      <div class="timeline-item reveal reveal-delay-3"><div class="timeline-dot"><i class="fa-solid fa-palette"></i></div><div class="timeline-content"><span>Beginning</span><h4>Started as a Graphic Designer</h4><p>Began the freelance journey designing logos and brand identities.</p></div></div>
+      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-dot"><i class="fa-brands fa-wordpress"></i></div><div class="timeline-content"><span>Foundation</span><h4>Started Web Development with WordPress &amp; Elementor</h4><p>Began building responsive, modern websites alongside design work.</p></div></div>
+      <div class="timeline-item reveal reveal-delay-3"><div class="timeline-dot"><i class="fa-solid fa-palette"></i></div><div class="timeline-content"><span>March 2022</span><h4>Started as a Graphic Designer</h4><p>Began the freelance journey designing logos and brand identities while studying at National University, Bangladesh.</p></div></div>
     </div>
   </div>
 </section>
@@ -330,6 +382,44 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
       <div class="value-card glass reveal"><i class="fa-solid fa-bolt"></i><h4>Fast Turnaround</h4><p>Clear timelines and consistent communication from start to finish.</p></div>
       <div class="value-card glass reveal reveal-delay-1"><i class="fa-solid fa-gem"></i><h4>Quality-First</h4><p>Every project gets the same attention to detail, regardless of size.</p></div>
       <div class="value-card glass reveal reveal-delay-2"><i class="fa-solid fa-comments"></i><h4>Clear Communication</h4><p>Fluent in Bangla and English, with regular updates throughout the project.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="eyebrow reveal">Background</span>
+    <h2 class="section-title reveal">Education &amp; certifications</h2>
+    <p class="section-sub reveal">The learning behind the work.</p>
+    <div class="education-grid">
+      <div class="education-card glass reveal"><i class="fa-solid fa-graduation-cap"></i><div><span>Education</span><h4>National University, Bangladesh</h4><p>Currently a student while running a freelance design, development, and SEO practice on the side.</p></div></div>
+      <div class="education-card glass reveal reveal-delay-1"><i class="fa-solid fa-award"></i><div><span>Certification</span><h4>E Learning and Earning</h4><p>Completed training focused on freelancing and digital skills for the online marketplace.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="eyebrow reveal">FAQ</span>
+    <h2 class="section-title reveal">Frequently asked questions</h2>
+    <p class="section-sub reveal">Quick answers about who I am and how I work.</p>
+    <div class="faq-list">
+      <div class="faq-item glass reveal">
+        <button class="faq-question" aria-expanded="false"><span>Who is Wach Saif?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Wach Saif is a graphic designer, WordPress developer, and SEO expert based in Kushtia, Bangladesh, who has completed 150+ projects since starting in March 2022.</div></div>
+      </div>
+      <div class="faq-item glass reveal reveal-delay-1">
+        <button class="faq-question" aria-expanded="false"><span>What services does Wach Saif offer?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Graphic design (logos and branding), web development using WordPress and Elementor, and SEO &amp; digital marketing.</div></div>
+      </div>
+      <div class="faq-item glass reveal reveal-delay-2">
+        <button class="faq-question" aria-expanded="false"><span>Where is Wach Saif based, and who does he work with?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Based in Kushtia, Bangladesh, working with freelance clients internationally, including clients across the USA.</div></div>
+      </div>
+      <div class="faq-item glass reveal reveal-delay-3">
+        <button class="faq-question" aria-expanded="false"><span>Does Wach Saif have any education or certifications?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">He is a student at National University, Bangladesh, and holds a certificate from E Learning and Earning.</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -402,6 +492,14 @@ const skillIO = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if(entry.isIntersecting){ entry.target.style.width = entry.target.dataset.width; skillIO.unobserve(entry.target); } });
 }, { threshold:0.4 });
 document.querySelectorAll('.skill-fill').forEach(el => skillIO.observe(el));
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => { el.classList.remove('open'); el.querySelector('.faq-question').setAttribute('aria-expanded','false'); });
+    if(!isOpen){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  });
+});
 </script>
 
 </body>
