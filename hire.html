@@ -135,6 +135,18 @@ section{padding:64px 0;position:relative;}
 .avail-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
 
 .contact-form{padding:40px;border-radius:var(--radius);}
+.stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;position:relative;z-index:1;}
+.stat-pill{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:100px;}
+.stat-pill i{color:var(--accent);font-size:15px;}
+.stat-pill b{font-weight:700;}
+.stat-pill span{color:var(--text-muted);font-size:13.5px;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.process-card{padding:30px 24px;border-radius:var(--radius);}
+.process-num{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1px;margin-bottom:14px;}
+.process-card h4{font-size:17px;margin-bottom:10px;}
+.process-card p{color:var(--text-muted);font-size:13.5px;}
+@media (max-width:940px){.process-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.process-grid{grid-template-columns:1fr;}.stat-pill{padding:10px 14px;font-size:12.5px;}.stat-pill span{font-size:12px;}.process-card{padding:24px 20px;}.process-card h4{font-size:16px;}.process-card p{font-size:13px;}}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
 .form-group{display:flex;flex-direction:column;gap:8px;}
 .form-group.full{grid-column:1/-1;}
@@ -282,6 +294,11 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
     <span class="eyebrow reveal">Let's Work Together</span>
     <h1 class="reveal">Let's talk about<br><span class="gradient-text">your next project</span></h1>
     <p class="reveal reveal-delay-1">Fill out the form below and I'll get back to you within 24 hours — or reach out directly using the contact details.</p>
+    <div class="stat-strip">
+      <div class="stat-pill glass reveal reveal-delay-1"><i class="fa-solid fa-users"></i><span><b>169+</b> clients served</span></div>
+      <div class="stat-pill glass reveal reveal-delay-2"><i class="fa-solid fa-clock"></i><span><b>5+ years</b> experience</span></div>
+      <div class="stat-pill glass reveal reveal-delay-3"><i class="fa-solid fa-bolt"></i><span><b>24hr</b> response time</span></div>
+    </div>
   </div>
 </section>
 
@@ -293,6 +310,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
         <div style="margin-top:26px;">
           <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><strong>Email</strong><a href="mailto:wachsaif1@gmail.com">wachsaif1@gmail.com</a></div></div>
           <div class="contact-item"><i class="fa-solid fa-phone"></i><div><strong>Phone</strong><a href="tel:+8801738553992">+880 1738 553992</a></div></div>
+          <div class="contact-item"><i class="fa-brands fa-whatsapp"></i><div><strong>WhatsApp</strong><a href="https://wa.me/8801738553992" target="_blank" rel="noopener">Chat directly</a></div></div>
           <div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><strong>Location</strong><span>Kushtia, Bangladesh</span></div></div>
           <div class="contact-item"><i class="fa-brands fa-linkedin-in"></i><div><strong>LinkedIn</strong><a href="https://linkedin.com/in/wachsaif" target="_blank" rel="noopener">linkedin.com/in/wachsaif</a></div></div>
         </div>
@@ -326,11 +344,27 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
 
 <section style="padding-top:0;">
   <div class="container">
+    <span class="eyebrow reveal">How It Works</span>
+    <h2 class="section-title reveal">A simple, transparent process</h2>
+    <p class="section-sub reveal">From first message to final delivery — here's what working together looks like.</p>
+    <div class="process-grid">
+      <div class="process-card glass reveal"><div class="process-num">01</div><h4>Discovery Call</h4><p>We discuss your goals, brand, and what success looks like for this project.</p></div>
+      <div class="process-card glass reveal reveal-delay-1"><div class="process-num">02</div><h4>Plan & Quote</h4><p>You get a clear scope, timeline, and price before any work begins.</p></div>
+      <div class="process-card glass reveal reveal-delay-2"><div class="process-num">03</div><h4>Design & Build</h4><p>I design, develop, or optimize — with regular updates along the way.</p></div>
+      <div class="process-card glass reveal reveal-delay-3"><div class="process-num">04</div><h4>Delivery & Support</h4><p>Final files or live site delivered, with support after handover.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
     <span class="eyebrow reveal">FAQ</span>
     <h2 class="section-title reveal">Before you reach out</h2>
     <div class="faq-item glass reveal"><h4><i class="fa-solid fa-circle-question"></i> How fast will I hear back?</h4><p>Usually within 24 hours, often sooner.</p></div>
     <div class="faq-item glass reveal reveal-delay-1"><h4><i class="fa-solid fa-circle-question"></i> Do you work with clients outside Bangladesh?</h4><p>Yes — most of my clients are international, and I work comfortably across time zones.</p></div>
     <div class="faq-item glass reveal reveal-delay-2"><h4><i class="fa-solid fa-circle-question"></i> What do you need from me to start?</h4><p>A short brief of your goals, timeline, and any brand assets you already have — I'll take it from there.</p></div>
+    <div class="faq-item glass reveal"><h4><i class="fa-solid fa-circle-question"></i> How do payments work?</h4><p>A deposit upfront to begin, with the balance due on delivery. I accept bKash, Payoneer, PayPal, and bank transfer.</p></div>
+    <div class="faq-item glass reveal reveal-delay-1"><h4><i class="fa-solid fa-circle-question"></i> Do you offer revisions?</h4><p>Yes — every project includes a set number of revision rounds so the final result matches what you had in mind.</p></div>
   </div>
 </section>
 
