@@ -26,7 +26,6 @@
 <meta name="twitter:description" content="Full portfolio of design, development, and SEO projects by Wach Saif.">
 <meta name="twitter:image" content="https://wachsaif.github.io/assets/og-cover.jpg">
 
-<link rel="icon" type="image/png" href="https://via.placeholder.com/32/34007D/FFFFFF?text=WS">
 
 <!-- ============ SCHEMA.ORG JSON-LD (Breadcrumb + CollectionPage) ============ -->
 <script type="application/ld+json">
@@ -89,13 +88,14 @@
   --transition:0.35s cubic-bezier(.22,1,.36,1);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;overflow-x:hidden;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%;}
 body{
   font-family:'Poppins',sans-serif;
   background:var(--bg-dark);
   color:var(--text-main);
   overflow-x:hidden;
+  width:100%;
   line-height:1.6;
 }
 @media (prefers-reduced-motion: reduce){
@@ -159,7 +159,8 @@ section{padding:64px 0;position:relative;}
 }
 .nav-cta::after{display:none;}
 .nav-cta:hover{box-shadow:0 0 24px 2px rgba(99,0,205,0.35);transform:translateY(-2px);}
-.nav-toggle{display:none;background:none;font-size:22px;color:var(--text-main);}
+.nav-toggle{display:none;background:none;font-size:20px;color:var(--text-main);width:44px;height:44px;align-items:center;justify-content:center;border-radius:10px;}
+.nav-toggle:active{background:var(--surface);}
 .mobile-menu{
   display:none;position:fixed;inset:0;z-index:999;background:rgba(250,248,255,0.98);
   flex-direction:column;align-items:center;justify-content:center;gap:28px;
@@ -170,7 +171,7 @@ section{padding:64px 0;position:relative;}
 .mobile-menu .nav-cta{padding:14px 32px;}
 @media (max-width:860px){
   .nav-links{display:none;}
-  .nav-toggle{display:block;}
+  .nav-toggle{display:flex;}
 }
 
 /* ============================================
@@ -351,6 +352,13 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
 }
 @media (max-width:420px){
   .footer-links{gap:14px 18px;font-size:13px;}
+}
+@media (hover:none){
+  .service-card:hover, .process-card:hover, .value-card:hover, .education-card:hover,
+  .testi-card:hover, .portfolio-card:hover, .social-icon:hover, .filter-btn:hover{transform:none;}
+}
+@media (max-width:420px){
+  .section-title{font-size:26px;}
 }
 </style>
 <script type="application/ld+json">
