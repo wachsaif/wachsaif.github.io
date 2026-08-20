@@ -171,7 +171,8 @@ section{padding:64px 0;position:relative;}
 
 .booking-card{padding:8px;border-radius:var(--radius);overflow:hidden;}
 .booking-inline{width:100%;min-height:650px;}
-@media (max-width:640px){.booking-inline{min-height:780px;}}
+@media (max-width:640px){.booking-card{padding:4px;border-radius:14px;}.booking-inline{min-height:600px;}}
+@media (max-width:420px){.booking-inline{min-height:560px;}}
 
 .faq-item{padding:26px 30px;border-radius:var(--radius);margin-bottom:16px;}
 .faq-item h4{font-size:15.5px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
@@ -452,12 +453,13 @@ const SITE_DATA = {
   };
 })(window, "https://app.cal.com/embed/embed.js", "init");
 Cal("init", "30min", { origin: "https://cal.com" });
+const calIsMobile = window.matchMedia("(max-width: 640px)").matches;
 Cal.ns["30min"]("inline", {
   elementOrSelector: "#cal-booking",
-  config: { layout: "month_view" },
+  config: { layout: calIsMobile ? "column_view" : "month_view" },
   calLink: "wachsaif/30min",
 });
-Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: calIsMobile ? "column_view" : "month_view" });
 
 document.getElementById('year').textContent = new Date().getFullYear();
 const navbar = document.getElementById('navbar');
