@@ -169,11 +169,8 @@ section{padding:64px 0;position:relative;}
 .map-wrap{border-radius:var(--radius);overflow:hidden;filter:grayscale(0.2) contrast(0.95);height:380px;border:1px solid var(--surface-border);}
 .map-wrap iframe{width:100%;height:100%;border:0;}
 
-.booking-card{padding:48px 32px;border-radius:var(--radius);text-align:center;}
-.booking-cta i.fa-calendar-days{font-size:34px;color:var(--accent);margin-bottom:16px;}
-.booking-cta h3{font-size:22px;margin-bottom:10px;}
-.booking-cta p{color:var(--text-muted);font-size:15px;margin-bottom:26px;}
-@media (max-width:640px){.booking-card{padding:36px 22px;}.booking-cta h3{font-size:19px;}}
+.booking-card{padding:40px;border-radius:var(--radius);}
+@media (max-width:640px){.booking-card{padding:24px;}}
 
 .faq-item{padding:26px 30px;border-radius:var(--radius);margin-bottom:16px;}
 .faq-item h4{font-size:15.5px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
@@ -351,16 +348,29 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
 <section style="padding-top:0;">
   <div class="container">
     <span class="eyebrow reveal">Book a Call</span>
-    <h2 class="section-title reveal">Prefer to just pick a time?</h2>
-    <p class="section-sub reveal">Grab a slot directly on my calendar — no back-and-forth emails needed.</p>
-    <div class="booking-card glass reveal">
-      <div class="booking-cta">
-        <i class="fa-solid fa-calendar-days"></i>
-        <h3>30 Minute Consultation</h3>
-        <p>Pick a time that works for you and I'll confirm instantly.</p>
-        <button class="btn btn-primary" data-cal-link="wachsaif/30min" data-cal-config='{"layout":"month_view"}'><i class="fa-solid fa-calendar-check"></i> Book a Time</button>
+    <h2 class="section-title reveal">Request an appointment</h2>
+    <p class="section-sub reveal">Pick your preferred date and time — I'll confirm by email once it's set.</p>
+    <form class="booking-card glass reveal" id="apptForm">
+      <input type="text" name="apptWebsite" class="form-honeypot" tabindex="-1" autocomplete="off">
+      <div class="form-row">
+        <div class="form-group"><label for="ap-name">Full Name</label><input type="text" id="ap-name" name="apptName" required autocomplete="name"></div>
+        <div class="form-group"><label for="ap-email">Email Address</label><input type="email" id="ap-email" name="apptEmail" required autocomplete="email"></div>
       </div>
-    </div>
+      <div class="form-row">
+        <div class="form-group"><label for="ap-date">Preferred Date</label><input type="date" id="ap-date" name="apptDate" required></div>
+        <div class="form-group"><label for="ap-time">Preferred Time</label><input type="time" id="ap-time" name="apptTime" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group full"><label for="ap-message">What's it about?</label><textarea id="ap-message" name="apptMessage" placeholder="Briefly tell me what you'd like to discuss..."></textarea></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group full">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAERVHCeZJD8mlHGW" data-theme="light" data-size="flexible"></div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary form-submit" id="apptSubmitBtn"><i class="fa-solid fa-calendar-check"></i> <span id="apptSubmitText">Request Appointment</span></button>
+      <div class="form-status" id="apptStatus"></div>
+    </form>
   </div>
 </section>
 
@@ -432,35 +442,6 @@ const SITE_DATA = {
   googleScriptURL: "https://script.google.com/macros/s/AKfycbwJGtDq4YqvRvK-Xm-hIlryY_K2pP-2axS8OoziIZ36_irxY4m9PAYPHNeCP2Bouks/exec",
 };
 
-(function (C, A, L) {
-  let p = function (a, ar) { a.q.push(ar); };
-  let d = C.document;
-  C.Cal = C.Cal || function () {
-    let cal = C.Cal;
-    let ar = arguments;
-    if (!cal.loaded) {
-      cal.ns = {};
-      cal.q = cal.q || [];
-      d.head.appendChild(d.createElement("script")).src = A;
-      cal.loaded = true;
-    }
-    if (ar[0] === L) {
-      const api = function () { p(api, arguments); };
-      const namespace = ar[1];
-      api.q = api.q || [];
-      if (typeof namespace === "string") {
-        cal.ns[namespace] = cal.ns[namespace] || api;
-        p(cal.ns[namespace], ar);
-        p(cal, ["initNamespace", namespace]);
-      } else p(cal, ar);
-      return;
-    }
-    p(cal, ar);
-  };
-})(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init", "30min", { origin: "https://cal.com" });
-Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
-
 document.getElementById('year').textContent = new Date().getFullYear();
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -531,6 +512,52 @@ contactForm.addEventListener('submit', async (e) => {
 function showStatus(msg, type){
   cfStatus.textContent = msg;
   cfStatus.className = 'form-status show ' + type;
+}
+
+const apptForm = document.getElementById('apptForm');
+const apptStatus = document.getElementById('apptStatus');
+const apptSubmitBtn = document.getElementById('apptSubmitBtn');
+const apptSubmitText = document.getElementById('apptSubmitText');
+
+apptForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if(apptForm.apptWebsite.value !== ''){ return; }
+
+  const name = apptForm.apptName.value.trim();
+  const email = apptForm.apptEmail.value.trim();
+  const date = apptForm.apptDate.value;
+  const time = apptForm.apptTime.value;
+  const message = apptForm.apptMessage.value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const apptTurnstileEl = apptForm.querySelector('.cf-turnstile');
+  const apptTurnstileToken = (typeof turnstile !== 'undefined' && apptTurnstileEl) ? turnstile.getResponse(apptTurnstileEl) : apptTurnstileEl?.querySelector('textarea[name="cf-turnstile-response"]')?.value;
+
+  apptStatus.classList.remove('show','success','error');
+
+  if(!name || !email || !date || !time){ showApptStatus('Please fill in name, email, date, and time.', 'error'); return; }
+  if(!emailPattern.test(email)){ showApptStatus('Please enter a valid email address.', 'error'); return; }
+  if(!apptTurnstileToken){ showApptStatus('Please complete the verification checkbox before sending.', 'error'); return; }
+
+  apptSubmitBtn.disabled = true;
+  apptSubmitText.textContent = 'Sending...';
+  try {
+    await fetch(SITE_DATA.googleScriptURL, {
+      method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'appointment', name, email, date, time, message, page: 'Hire Me — Appointment', turnstileToken: apptTurnstileToken })
+    });
+    showApptStatus('Thanks! Your appointment request has been sent — I\'ll confirm by email shortly.', 'success');
+    apptForm.reset();
+    if(typeof turnstile !== 'undefined' && apptTurnstileEl){ turnstile.reset(apptTurnstileEl); }
+  } catch (err) {
+    showApptStatus('Something went wrong. Please try again or email me directly.', 'error');
+  } finally {
+    apptSubmitBtn.disabled = false;
+    apptSubmitText.textContent = 'Request Appointment';
+  }
+});
+function showApptStatus(msg, type){
+  apptStatus.textContent = msg;
+  apptStatus.className = 'form-status show ' + type;
 }
 </script>
 
