@@ -360,7 +360,10 @@ section{padding:72px 0;position:relative;}
   .hero-visual{margin-top:40px;}
   .hero-photo-frame{width:260px;height:310px;}
   .scroll-cue{display:none;}
-  .fc-1,.fc-2{display:none;}
+  .floating-card{padding:10px 14px;font-size:11.5px;gap:7px;}
+  .floating-card i{font-size:15px;}
+  .fc-1{top:6%;left:2%;}
+  .fc-2{bottom:8%;right:2%;}
 }
 
 /* ============================================
@@ -610,15 +613,18 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
 }
 @media (max-width:400px){
   .hero h1{font-size:32px;}
+  .hero-photo-frame{width:220px;height:260px;}
+  .floating-card{padding:8px 11px;font-size:10.5px;gap:6px;}
+  .floating-card i{font-size:13px;}
 }
 
 /* ============================================
    MOBILE-FRIENDLY FIXES
    ============================================ */
 @media (max-width:940px){
-  /* floating badge cards on the hero photo overflow the viewport at
-     narrow widths because they're positioned with negative left/right % */
-  .fc-1,.fc-2{display:none;}
+  /* floating badge cards on the hero photo used to overflow the viewport
+     at narrow widths because they were positioned with negative left/right %;
+     they're now repositioned to sit inside the frame instead (see above). */
 }
 @media (max-width:768px){
   .container{padding:0 18px;}
