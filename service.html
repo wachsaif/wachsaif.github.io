@@ -215,7 +215,7 @@ section{padding:64px 0;position:relative;}
 .service-list{display:flex;flex-direction:column;gap:10px;position:relative;z-index:1;}
 .service-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-main);}
 .service-list i{color:var(--accent);font-size:13px;}
-@media (max-width:860px){.services-grid{grid-template-columns:1fr;}}
+@media (max-width:860px){.services-grid{grid-template-columns:repeat(2,1fr);gap:16px;}}
 
 /* ACCORDION - What's included */
 .accordion{display:flex;flex-direction:column;gap:14px;}
@@ -303,6 +303,18 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   .service-card h3{font-size:18px;}
   .service-card p{font-size:14px;}
   .service-list li{font-size:13.5px;}
+}
+@media (max-width:480px){
+  .services-grid{gap:12px;}
+  .service-card{padding:16px 14px;border-radius:16px;}
+  .service-icon{width:38px;height:38px;font-size:15px;border-radius:12px;margin-bottom:12px;}
+  .service-card h3{font-size:15px;margin-bottom:8px;}
+  .service-card p{font-size:12.5px;margin-bottom:12px;line-height:1.4;}
+  .service-list{gap:7px;}
+  .service-list li{font-size:12px;gap:7px;}
+  .service-list i{font-size:11px;}
+}
+@media (max-width:640px){
   .process-card{padding:24px 20px;}
   .process-card h4{font-size:16px;}
   .process-card p{font-size:13px;}
