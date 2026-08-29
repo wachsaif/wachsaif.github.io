@@ -727,19 +727,18 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
       <div class="floating-card glass fc-2"><i class="fa-solid fa-award"></i> 5+ Yrs Experience</div>
     </div>
   </div>
-  <a href="#services" class="scroll-cue"><span>SCROLL</span><span class="line"></span></a>
 </section>
 
 <!-- ======================================================
      STATS
 ====================================================== -->
-<section class="stats" style="padding-top:0;padding-bottom:36px;">
+<section class="stats" style="padding-bottom:36px;">
   <div class="container">
     <div class="stats-grid">
-      <div class="reveal"><div class="stat-num gradient-text" data-count="5">0</div><div class="stat-label">Years Experience</div></div>
-      <div class="reveal reveal-delay-1"><div class="stat-num gradient-text" data-count="169">0</div><div class="stat-label">Clients Served</div></div>
+      <div class="reveal"><div class="stat-num gradient-text" data-count="5" data-suffix="+">0</div><div class="stat-label">Years Experience</div></div>
+      <div class="reveal reveal-delay-1"><div class="stat-num gradient-text" data-count="169" data-suffix="+">0</div><div class="stat-label">Clients Served</div></div>
       <div class="reveal reveal-delay-2"><div class="stat-num gradient-text" data-count="4">0</div><div class="stat-label">Core Services</div></div>
-      <div class="reveal reveal-delay-3"><div class="stat-num gradient-text" data-count="100">0</div><div class="stat-label">% Client Satisfaction</div></div>
+      <div class="reveal reveal-delay-3"><div class="stat-num gradient-text" data-count="100" data-suffix="%">0</div><div class="stat-label">Client Satisfaction</div></div>
     </div>
   </div>
 </section>
@@ -1088,11 +1087,12 @@ const counterIO = new IntersectionObserver((entries) => {
     if(!entry.isIntersecting) return;
     const el = entry.target;
     const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
     let current = 0;
     const step = Math.max(1, Math.ceil(target / 60));
     const timer = setInterval(() => {
       current += step;
-      if(current >= target){ current = target; clearInterval(timer); }
+      if(current >= target){ current = target; clearInterval(timer); el.textContent = current + suffix; return; }
       el.textContent = current;
     }, 25);
     counterIO.unobserve(el);
