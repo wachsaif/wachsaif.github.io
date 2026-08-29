@@ -175,10 +175,29 @@ section{padding:64px 0;position:relative;}
 .booking-cta p{color:var(--text-muted);font-size:15px;margin-bottom:26px;}
 @media (max-width:640px){.booking-card{padding:36px 22px;}.booking-cta h3{font-size:19px;}}
 
-.faq-item{padding:26px 30px;border-radius:var(--radius);margin-bottom:16px;}
-.faq-item h4{font-size:15.5px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
-.faq-item h4 i{color:var(--accent);font-size:14px;}
-.faq-item p{color:var(--text-muted);font-size:14px;padding-left:24px;}
+/* ===== FAQ split panel ===== */
+.faq-wrap{display:flex;border-radius:var(--radius);overflow:hidden;min-height:300px;}
+.faq-qlist{flex:0 0 38%;display:flex;flex-direction:column;background:rgba(52,0,125,0.035);border-right:1px solid var(--surface-border);}
+.faq-q{text-align:left;padding:22px 26px;font-size:14.5px;font-weight:600;color:var(--text-muted);border-left:3px solid transparent;transition:var(--transition);display:flex;align-items:center;gap:12px;}
+.faq-q i{font-size:12px;color:var(--accent);opacity:0;transition:opacity 0.3s, transform 0.3s;transform:translateX(-6px);flex-shrink:0;}
+.faq-q.active{color:var(--text-main);background:var(--bg-dark);border-left:3px solid var(--accent);}
+.faq-q.active i{opacity:1;transform:translateX(0);}
+.faq-q:hover:not(.active){color:var(--text-main);}
+.faq-answer{flex:1;padding:40px 44px;display:flex;align-items:center;}
+.faq-answer-inner{opacity:0;transform:translateY(10px);transition:opacity 0.35s var(--transition), transform 0.35s var(--transition);}
+.faq-answer-inner.show{opacity:1;transform:translateY(0);}
+.faq-answer-inner h4{font-size:20px;margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.faq-answer-inner h4 i{color:var(--accent);font-size:16px;}
+.faq-answer-inner p{font-size:15px;color:var(--text-muted);}
+@media (max-width:768px){
+  .faq-wrap{flex-direction:column;}
+  .faq-qlist{flex:none;flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid var(--surface-border);}
+  .faq-q{white-space:nowrap;border-left:none;border-bottom:3px solid transparent;padding:16px 18px;font-size:13.5px;}
+  .faq-q.active{border-left:none;border-bottom:3px solid var(--accent);}
+  .faq-answer{padding:26px 22px;}
+  .faq-answer-inner h4{font-size:17px;}
+  .faq-answer-inner p{font-size:14px;}
+}
 
 .btn{padding:15px 30px;border-radius:100px;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:10px;transition:transform 0.3s var(--transition), box-shadow 0.3s var(--transition);}
 .btn-primary{background:linear-gradient(90deg,var(--secondary),var(--primary));color:#fff;box-shadow:0 8px 24px -8px rgba(99,0,205,0.45);}
@@ -228,10 +247,6 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   .btn{padding:13px 24px;font-size:14px;width:100%;}
   .form-submit{font-size:14px;}
   .cf-turnstile iframe{width:100% !important;}
-
-  .faq-item{padding:18px 20px;margin-bottom:12px;}
-  .faq-item h4{font-size:14.5px;gap:8px;}
-  .faq-item p{font-size:13.5px;padding-left:22px;}
 
   .map-wrap{height:260px;border-radius:14px;}
 
@@ -368,11 +383,21 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   <div class="container">
     <span class="eyebrow reveal">FAQ</span>
     <h2 class="section-title reveal">Before you reach out</h2>
-    <div class="faq-item glass reveal"><h4><i class="fa-solid fa-circle-question"></i> How fast will I hear back?</h4><p>Usually within 24 hours, often sooner.</p></div>
-    <div class="faq-item glass reveal reveal-delay-1"><h4><i class="fa-solid fa-circle-question"></i> Do you work with clients outside Bangladesh?</h4><p>Yes — most of my clients are international, and I work comfortably across time zones.</p></div>
-    <div class="faq-item glass reveal reveal-delay-2"><h4><i class="fa-solid fa-circle-question"></i> What do you need from me to start?</h4><p>A short brief of your goals, timeline, and any brand assets you already have — I'll take it from there.</p></div>
-    <div class="faq-item glass reveal"><h4><i class="fa-solid fa-circle-question"></i> How do payments work?</h4><p>A deposit upfront to begin, with the balance due on delivery. I accept bKash, Payoneer, PayPal, and bank transfer.</p></div>
-    <div class="faq-item glass reveal reveal-delay-1"><h4><i class="fa-solid fa-circle-question"></i> Do you offer revisions?</h4><p>Yes — every project includes a set number of revision rounds so the final result matches what you had in mind.</p></div>
+    <div class="faq-wrap glass reveal" id="faqWrap">
+      <div class="faq-qlist" id="faqQList">
+        <button class="faq-q active" data-i="0"><i class="fa-solid fa-caret-right"></i> How fast will I hear back?</button>
+        <button class="faq-q" data-i="1"><i class="fa-solid fa-caret-right"></i> Do you work with clients outside Bangladesh?</button>
+        <button class="faq-q" data-i="2"><i class="fa-solid fa-caret-right"></i> What do you need from me to start?</button>
+        <button class="faq-q" data-i="3"><i class="fa-solid fa-caret-right"></i> How do payments work?</button>
+        <button class="faq-q" data-i="4"><i class="fa-solid fa-caret-right"></i> Do you offer revisions?</button>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner show" id="faqAnswer">
+          <h4><i class="fa-solid fa-circle-question"></i> How fast will I hear back?</h4>
+          <p>Usually within 24 hours, often sooner.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -473,6 +498,28 @@ function observeReveals(){
   document.querySelectorAll('.reveal:not(.in-view)').forEach(el => io.observe(el));
 }
 observeReveals();
+
+/* FAQ split panel */
+const faqAnswers = [
+  {h:"How fast will I hear back?", p:"Usually within 24 hours, often sooner."},
+  {h:"Do you work with clients outside Bangladesh?", p:"Yes — most of my clients are international, and I work comfortably across time zones."},
+  {h:"What do you need from me to start?", p:"A short brief of your goals, timeline, and any brand assets you already have — I'll take it from there."},
+  {h:"How do payments work?", p:"A deposit upfront to begin, with the balance due on delivery. I accept bKash, Payoneer, PayPal, and bank transfer."},
+  {h:"Do you offer revisions?", p:"Yes — every project includes a set number of revision rounds so the final result matches what you had in mind."}
+];
+const faqAnswerEl = document.getElementById('faqAnswer');
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.faq-q').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    faqAnswerEl.classList.remove('show');
+    setTimeout(() => {
+      const a = faqAnswers[+btn.dataset.i];
+      faqAnswerEl.innerHTML = `<h4><i class="fa-solid fa-circle-question"></i> ${a.h}</h4><p>${a.p}</p>`;
+      faqAnswerEl.classList.add('show');
+    }, 180);
+  });
+});
 
 const contactForm = document.getElementById('contactForm');
 const cfStatus = document.getElementById('cfStatus');
