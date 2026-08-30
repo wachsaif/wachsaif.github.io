@@ -9,6 +9,7 @@
 <meta name="keywords" content="brand identity design service, custom logo and branding designer, affordable website design service, responsive website developer for hire, SEO expert for small business, technical SEO consultant freelance, search engine marketing consultant, website design and SEO package">
 <meta name="author" content="Wach Saif">
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#34007D">
 <link rel="canonical" href="https://wachsaif.github.io/service.html">
 
 <meta property="og:type" content="website">
@@ -17,6 +18,7 @@
 <meta property="og:image" content="https://wachsaif.github.io/assets/og-cover.jpg">
 <meta property="og:url" content="https://wachsaif.github.io/service.html">
 <meta property="og:site_name" content="Wach Saif Portfolio">
+<meta property="og:locale" content="en_US">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Brand Identity Design, Website Design & SEO Packages | Wach Saif">
@@ -33,6 +35,7 @@
     "name": "Wach Saif",
     "url": "https://wachsaif.github.io/",
     "areaServed": "Worldwide",
+    "priceRange": "$$",
     "sameAs": [
       "https://www.behance.net/wach_saif",
       "https://www.fiverr.com/wach_saif",
@@ -128,6 +131,7 @@
   --primary:#34007D;
   --secondary:#6300CD;
   --accent:#00A896;
+  --accent2:#E8871E;
   --bg-dark:#FAF8FF;
   --surface:rgba(52,0,125,0.045);
   --surface-border:rgba(52,0,125,0.14);
@@ -203,76 +207,36 @@ section{padding:64px 0;position:relative;}
 .stat-pill b{font-weight:700;}
 .stat-pill span{color:var(--text-muted);font-size:13.5px;}
 
-/* SERVICES GRID (overview cards) */
-.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
-.service-card{padding:36px;border-radius:var(--radius);position:relative;overflow:hidden;transition:transform 0.4s var(--transition), border-color 0.4s;}
-.service-card::before{content:'';position:absolute;inset:0;opacity:0;background:linear-gradient(160deg,rgba(99,0,205,0.08),transparent 60%);transition:opacity 0.4s;pointer-events:none;}
-.service-card:hover{transform:translateY(-8px);border-color:rgba(0,168,150,0.3);}
-.service-card:hover::before{opacity:1;}
-.service-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;background:linear-gradient(135deg,var(--secondary),var(--primary));margin-bottom:22px;position:relative;z-index:1;}
-.service-card h3{font-size:20px;margin-bottom:12px;position:relative;z-index:1;}
-.service-card p{color:var(--text-muted);font-size:14.5px;margin-bottom:18px;position:relative;z-index:1;}
-.service-list{display:flex;flex-direction:column;gap:10px;position:relative;z-index:1;}
-.service-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-main);}
-.service-list i{color:var(--accent);font-size:13px;}
-@media (max-width:860px){.services-grid{grid-template-columns:repeat(2,1fr);gap:16px;}}
-
-/* ACCORDION - What's included */
-.accordion{display:flex;flex-direction:column;gap:14px;}
-.acc-item{border-radius:var(--radius);overflow:hidden;}
-.acc-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;text-align:left;cursor:pointer;}
-.acc-head-left{display:flex;align-items:center;gap:16px;}
-.acc-icon{width:44px;height:44px;flex:none;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;background:linear-gradient(135deg,var(--secondary),var(--primary));}
-.acc-head h4{font-size:17px;font-weight:600;}
-.acc-head .acc-plus{width:32px;height:32px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--secondary);border:1px solid var(--surface-border);transition:transform 0.35s var(--transition);}
-.acc-item.open .acc-plus{transform:rotate(135deg);}
-.acc-body{max-height:0;overflow:hidden;transition:max-height 0.4s var(--transition);}
-.acc-body-inner{padding:0 26px 26px 86px;color:var(--text-muted);font-size:14.5px;}
-.acc-body-inner .acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:6px;}
-.acc-body-inner h5{color:var(--text-main);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
-.acc-body-inner ul{display:flex;flex-direction:column;gap:8px;}
-.acc-body-inner ul li{display:flex;gap:8px;font-size:14px;}
-.acc-body-inner ul li i{color:var(--accent);font-size:12px;margin-top:5px;}
-@media (max-width:640px){
-  .acc-head{padding:18px 18px;}
-  .acc-body-inner{padding:0 18px 22px 18px;}
-  .acc-body-inner .acc-grid{grid-template-columns:1fr;gap:16px;}
-  .acc-icon{width:38px;height:38px;font-size:15px;}
-  .acc-head h4{font-size:15.5px;}
-}
-
 /* PRICING */
-.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
-.price-card{padding:32px;border-radius:var(--radius);}
-.price-card-head{display:flex;align-items:center;gap:14px;margin-bottom:22px;}
-.price-icon{width:46px;height:46px;flex:none;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;background:linear-gradient(135deg,var(--secondary),var(--primary));}
-.price-card-head h3{font-size:18px;}
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+.price-card{--card-solid:var(--secondary);padding:34px;border-radius:22px;position:relative;overflow:hidden;transition:transform 0.4s var(--transition), box-shadow 0.4s var(--transition);}
+.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--card-solid);}
+.price-card:hover{transform:translateY(-6px);box-shadow:0 24px 44px -22px rgba(52,0,125,0.28);}
+.price-badge{position:absolute;top:24px;right:24px;background:linear-gradient(90deg,var(--accent),#00c9b1);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.3px;padding:6px 13px;border-radius:100px;}
+.price-card-head{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:22px;border-bottom:1px solid var(--surface-border);}
+.price-icon{width:52px;height:52px;flex:none;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;background:var(--card-solid);box-shadow:0 10px 22px -8px rgba(52,0,125,0.35);}
+.price-icon svg{width:24px;height:24px;}
+.price-card-head h3{font-size:19px;font-weight:700;}
 .price-list{display:flex;flex-direction:column;}
-.price-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--surface-border);}
-.price-row:last-child{border-bottom:none;}
+.price-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 8px;border-radius:10px;transition:background 0.25s;}
+.price-row:hover{background:rgba(99,0,205,0.05);}
+.price-row:not(:last-child){border-bottom:1px dashed var(--surface-border);}
 .price-row .p-name{font-size:14.5px;color:var(--text-main);}
-.price-row .p-amount{font-size:14.5px;font-weight:700;white-space:nowrap;color:var(--secondary);}
-.price-row .p-amount small{font-weight:500;color:var(--text-muted);font-size:12px;}
-.price-note{margin-top:18px;font-size:12.5px;color:var(--text-muted);display:flex;align-items:center;gap:8px;}
-.price-note i{color:var(--accent);}
-@media (max-width:860px){.pricing-grid{grid-template-columns:1fr;gap:16px;}}
+.price-row .p-amount{font-size:15px;font-weight:700;white-space:nowrap;color:var(--card-solid);}
+.price-row .p-amount small{font-weight:500;-webkit-text-fill-color:var(--text-muted);color:var(--text-muted);font-size:12px;}
+.price-note{margin-top:20px;font-size:12.5px;color:var(--text-muted);display:flex;align-items:center;gap:8px;}
+.price-note svg{color:var(--accent);}
+@media (max-width:860px){.pricing-grid{grid-template-columns:1fr;gap:18px;}}
 @media (max-width:640px){
-  .price-card{padding:22px;}
-  .price-card-head{margin-bottom:16px;gap:12px;}
-  .price-icon{width:40px;height:40px;font-size:16px;}
-  .price-card-head h3{font-size:16px;}
-  .price-row{padding:11px 0;}
+  .price-card{padding:24px 20px;border-radius:18px;}
+  .price-card-head{margin-bottom:18px;padding-bottom:16px;gap:12px;}
+  .price-icon{width:44px;height:44px;font-size:17px;border-radius:13px;}
+  .price-icon svg{width:20px;height:20px;}
+  .price-card-head h3{font-size:17px;}
+  .price-row{padding:10px 4px;}
   .price-row .p-name, .price-row .p-amount{font-size:13.5px;}
+  .price-badge{top:18px;right:18px;font-size:10px;padding:5px 11px;}
 }
-
-/* PROCESS */
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
-.process-card{padding:30px 24px;border-radius:var(--radius);}
-.process-num{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1px;margin-bottom:14px;}
-.process-card h4{font-size:17px;margin-bottom:10px;}
-.process-card p{color:var(--text-muted);font-size:13.5px;}
-@media (max-width:940px){.process-grid{grid-template-columns:1fr 1fr;}}
-@media (max-width:560px){.process-grid{grid-template-columns:1fr;}}
 
 /* FAQ */
 .faq-list{display:flex;flex-direction:column;gap:12px;}
@@ -322,21 +286,6 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   .stat-strip{gap:10px;margin-top:24px;}
   .hire-section{padding:36px 22px;border-radius:22px;}
   .container{padding:0 18px;}
-  .service-card{padding:24px 22px;}
-  .service-icon{width:48px;height:48px;font-size:19px;margin-bottom:18px;}
-  .service-card h3{font-size:18px;}
-  .service-card p{font-size:14px;}
-  .service-list li{font-size:13.5px;}
-}
-@media (max-width:480px){
-  .services-grid{gap:12px;}
-  .service-card{padding:16px 14px;border-radius:16px;}
-  .service-icon{width:38px;height:38px;font-size:15px;border-radius:12px;margin-bottom:12px;}
-  .service-card h3{font-size:15px;margin-bottom:8px;}
-  .service-card p{font-size:12.5px;margin-bottom:12px;line-height:1.4;}
-  .service-list{gap:7px;}
-  .service-list li{font-size:12px;gap:7px;}
-  .service-list i{font-size:11px;}
 }
 @media (max-width:640px){
   .process-card{padding:24px 20px;}
@@ -348,19 +297,17 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   .social-icon{width:44px;height:44px;}
   .to-top{bottom:20px;right:16px;width:46px;height:46px;}
   .stat-pill{padding:10px 14px;font-size:12.5px;}
-  .acc-head, .faq-q{min-height:44px;}
-  .acc-plus{width:36px;height:36px;}
+  .faq-q{min-height:44px;}
   .hire-section .btn{width:100%;justify-content:center;padding:16px 24px;}
 }
 @media (max-width:420px){
   .footer-links{gap:14px 18px;font-size:13px;}
   .page-hero h1{font-size:26px;}
   .stat-pill span{font-size:12px;}
-  .acc-body-inner{padding-left:16px;}
 }
 @media (hover:none){
-  .service-card:hover, .process-card:hover, .social-icon:hover{transform:none;}
-  .acc-head:active, .faq-q:active{background:var(--surface);}
+  .process-card:hover, .social-icon:hover{transform:none;}
+  .faq-q:active{background:var(--surface);}
 }
 </style>
 </head>
@@ -404,184 +351,6 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   </div>
 </section>
 
-<section style="padding-top:0;">
-  <div class="container">
-    <div class="services-grid" id="servicesGrid">
-      <div class="service-card glass reveal">
-        <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
-        <h3>Brand Identity Design Service</h3>
-        <p>Every project starts with your business goals, not a template — logo concepts are built around what your brand needs to say, then carried through into a full visual identity: color palette, typography, social templates, packaging, and print materials that stay consistent everywhere your brand shows up.</p>
-        <ul class="service-list">
-          <li><i class="fa-solid fa-circle-check"></i> Logo & brand identity design</li>
-          <li><i class="fa-solid fa-circle-check"></i> Social media creatives</li>
-          <li><i class="fa-solid fa-circle-check"></i> T-shirt & merchandise design</li>
-          <li><i class="fa-solid fa-circle-check"></i> Print-ready business materials</li>
-        </ul>
-      </div>
-      <div class="service-card glass reveal reveal-delay-1">
-        <div class="service-icon"><i class="fa-solid fa-code"></i></div>
-        <h3>Affordable Website Design Service</h3>
-        <p>Sites are hand-coded rather than assembled from heavy page builders, which keeps load times fast and the code easy to maintain. Every build is mobile-first from the ground up, so the layout, images, and navigation are tested on small screens first, not adjusted after the fact.</p>
-        <ul class="service-list">
-          <li><i class="fa-solid fa-circle-check"></i> Portfolio & business websites</li>
-          <li><i class="fa-solid fa-circle-check"></i> Landing pages</li>
-          <li><i class="fa-solid fa-circle-check"></i> Blogger template development</li>
-          <li><i class="fa-solid fa-circle-check"></i> Responsive, mobile-first builds</li>
-        </ul>
-      </div>
-      <div class="service-card glass reveal reveal-delay-2">
-        <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-        <h3>SEO Expert for Small Business</h3>
-        <p>SEO work begins with a technical audit — checking indexing, site speed, structure, and on-page basics — before any content or keyword strategy is built on top. That way improvements target what's actually holding a site back in search results, not just generic checklist items.</p>
-        <ul class="service-list">
-          <li><i class="fa-solid fa-circle-check"></i> On-page & technical SEO</li>
-          <li><i class="fa-solid fa-circle-check"></i> Keyword research & strategy</li>
-          <li><i class="fa-solid fa-circle-check"></i> Site speed & structure audits</li>
-          <li><i class="fa-solid fa-circle-check"></i> Local SEO setup</li>
-        </ul>
-      </div>
-      <div class="service-card glass reveal reveal-delay-3">
-        <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
-        <h3>Search Engine Marketing Consultant</h3>
-        <p>Marketing plans are built around measurable outcomes — leads, sign-ups, or sales — rather than vanity metrics like likes or impressions. Each campaign includes a content calendar, clear posting strategy, and a monthly report showing what actually moved the needle.</p>
-        <ul class="service-list">
-          <li><i class="fa-solid fa-circle-check"></i> Social media strategy</li>
-          <li><i class="fa-solid fa-circle-check"></i> Content planning</li>
-          <li><i class="fa-solid fa-circle-check"></i> Campaign management</li>
-          <li><i class="fa-solid fa-circle-check"></i> Performance reporting</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <span class="eyebrow reveal">The Details</span>
-    <h2 class="section-title reveal">What's included in each service</h2>
-    <p class="section-sub reveal">Tap a service to see the deliverables and tools behind it.</p>
-    <div class="accordion" id="accordion">
-
-      <div class="acc-item glass reveal">
-        <button class="acc-head" aria-expanded="false">
-          <div class="acc-head-left"><div class="acc-icon"><i class="fa-solid fa-palette"></i></div><h4>Graphic Design</h4></div>
-          <span class="acc-plus"><i class="fa-solid fa-plus"></i></span>
-        </button>
-        <div class="acc-body">
-          <div class="acc-body-inner">
-            <div class="acc-grid">
-              <div>
-                <h5>Deliverables</h5>
-                <ul>
-                  <li><i class="fa-solid fa-check"></i> Logo concepts + final files (vector, PNG, favicon)</li>
-                  <li><i class="fa-solid fa-check"></i> Brand color palette & typography guide</li>
-                  <li><i class="fa-solid fa-check"></i> Social post templates or print-ready artwork</li>
-                </ul>
-              </div>
-              <div>
-                <h5>Tools & Turnaround</h5>
-                <ul>
-                  <li><i class="fa-solid fa-check"></i> Adobe Illustrator, Photoshop, Canva</li>
-                  <li><i class="fa-solid fa-check"></i> Typically 2-5 days depending on scope</li>
-                  <li><i class="fa-solid fa-check"></i> 2-3 rounds of revisions included</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="acc-item glass reveal reveal-delay-1">
-        <button class="acc-head" aria-expanded="false">
-          <div class="acc-head-left"><div class="acc-icon"><i class="fa-solid fa-code"></i></div><h4>Web Development</h4></div>
-          <span class="acc-plus"><i class="fa-solid fa-plus"></i></span>
-        </button>
-        <div class="acc-body">
-          <div class="acc-body-inner">
-            <div class="acc-grid">
-              <div>
-                <h5>Deliverables</h5>
-                <ul>
-                  <li><i class="fa-solid fa-check"></i> Fully responsive, mobile-first site</li>
-                  <li><i class="fa-solid fa-check"></i> Clean, commented HTML/CSS/JS source</li>
-                  <li><i class="fa-solid fa-check"></i> Basic on-page SEO setup included</li>
-                </ul>
-              </div>
-              <div>
-                <h5>Tools & Turnaround</h5>
-                <ul>
-                  <li><i class="fa-solid fa-check"></i> Hand-coded HTML, CSS, JavaScript</li>
-                  <li><i class="fa-solid fa-check"></i> 1-3 weeks depending on page count</li>
-                  <li><i class="fa-solid fa-check"></i> Works as a standalone site or Blogger template</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="acc-item glass reveal reveal-delay-2">
-        <button class="acc-head" aria-expanded="false">
-          <div class="acc-head-left"><div class="acc-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><h4>SEO</h4></div>
-          <span class="acc-plus"><i class="fa-solid fa-plus"></i></span>
-        </button>
-        <div class="acc-body">
-          <div class="acc-body-inner">
-            <div class="acc-grid">
-              <div>
-                <h5>Deliverables</h5>
-                <ul>
-                  <li><i class="fa-solid fa-check"></i> Keyword research & competitor overview</li>
-                  <li><i class="fa-solid fa-check"></i> On-page fixes: titles, meta, headings, alt text</li>
-                  <li><i class="fa-solid fa-check"></i> Technical audit: speed, indexing, structure</li>
-                </ul>
-              </div>
-              <div>
-                <h5>Approach & Turnaround</h5>
-                <ul>
-                  <li><i class="fa-solid fa-check"></i> Full audit delivered within a week</li>
-                  <li><i class="fa-solid fa-check"></i> Written action plan, prioritized by impact</li>
-                  <li><i class="fa-solid fa-check"></i> Optional ongoing monthly SEO support</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="acc-item glass reveal reveal-delay-3">
-        <button class="acc-head" aria-expanded="false">
-          <div class="acc-head-left"><div class="acc-icon"><i class="fa-solid fa-bullhorn"></i></div><h4>Digital Marketing</h4></div>
-          <span class="acc-plus"><i class="fa-solid fa-plus"></i></span>
-        </button>
-        <div class="acc-body">
-          <div class="acc-body-inner">
-            <div class="acc-grid">
-              <div>
-                <h5>Deliverables</h5>
-                <ul>
-                  <li><i class="fa-solid fa-check"></i> Content calendar & posting strategy</li>
-                  <li><i class="fa-solid fa-check"></i> Campaign setup across chosen platforms</li>
-                  <li><i class="fa-solid fa-check"></i> Monthly performance report</li>
-                </ul>
-              </div>
-              <div>
-                <h5>Approach & Turnaround</h5>
-                <ul>
-                  <li><i class="fa-solid fa-check"></i> Strategy delivered within 3-5 days</li>
-                  <li><i class="fa-solid fa-check"></i> Ongoing management billed monthly</li>
-                  <li><i class="fa-solid fa-check"></i> Reporting focused on real client outcomes</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <section>
   <div class="container">
     <span class="eyebrow reveal">Pricing</span>
@@ -589,9 +358,9 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
     <p class="section-sub reveal">Starting prices for each service — final quotes depend on project scope and are confirmed before any work begins.</p>
     <div class="pricing-grid">
 
-      <div class="price-card glass reveal">
+      <div class="price-card glass reveal" style="--card-solid:#6300CD;">
         <div class="price-card-head">
-          <div class="price-icon"><i class="fa-solid fa-palette"></i></div>
+          <div class="price-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-4.97-4.93-9-9-9z"/><circle cx="6.5" cy="11.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="9.5" cy="7.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="14.5" cy="7.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="17.5" cy="11.5" r="1.5" fill="currentColor" stroke="none"/></svg></div>
           <h3>Graphic Design</h3>
         </div>
         <div class="price-list">
@@ -606,12 +375,13 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
           <div class="price-row"><span class="p-name">Resume/CV Design</span><span class="p-amount">$12.99</span></div>
           <div class="price-row"><span class="p-name">Brand Identity Package</span><span class="p-amount">$49.99</span></div>
         </div>
-        <div class="price-note"><i class="fa-solid fa-circle-info"></i> Prices start from listed rate</div>
+        <div class="price-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex:none;"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="11"/><circle cx="12" cy="8" r="0.5" fill="currentColor" stroke="none"/></svg> Prices start from listed rate</div>
       </div>
 
-      <div class="price-card glass reveal reveal-delay-1">
+      <div class="price-card glass reveal reveal-delay-1" style="--card-solid:#00A896;">
+        <span class="price-badge">Most Popular</span>
         <div class="price-card-head">
-          <div class="price-icon"><i class="fa-solid fa-code"></i></div>
+          <div class="price-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
           <h3>Website Development</h3>
         </div>
         <div class="price-list">
@@ -627,12 +397,12 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
           <div class="price-row"><span class="p-name">Booking/Appointment Website</span><span class="p-amount">$149.99</span></div>
           <div class="price-row"><span class="p-name">Website Maintenance & Support</span><span class="p-amount">$29.99 <small>/mo</small></span></div>
         </div>
-        <div class="price-note"><i class="fa-solid fa-circle-info"></i> Prices start from listed rate</div>
+        <div class="price-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex:none;"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="11"/><circle cx="12" cy="8" r="0.5" fill="currentColor" stroke="none"/></svg> Prices start from listed rate</div>
       </div>
 
-      <div class="price-card glass reveal reveal-delay-2">
+      <div class="price-card glass reveal reveal-delay-2" style="--card-solid:#E8871E;">
         <div class="price-card-head">
-          <div class="price-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          <div class="price-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a2 2 0 0 0 2 2h1l3.5 5V6L6 11H5a2 2 0 0 0-2 2z"/><path d="M14 8a4 4 0 0 1 0 8"/><path d="M17.5 5.5a8 8 0 0 1 0 13"/></svg></div>
           <h3>Digital Marketing</h3>
         </div>
         <div class="price-list">
@@ -641,12 +411,12 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
           <div class="price-row"><span class="p-name">Content Creation & Copywriting</span><span class="p-amount">$10.00 <small>/hr</small></span></div>
           <div class="price-row"><span class="p-name">Email Marketing Setup</span><span class="p-amount">$39.99</span></div>
         </div>
-        <div class="price-note"><i class="fa-solid fa-circle-info"></i> Prices start from listed rate</div>
+        <div class="price-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex:none;"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="11"/><circle cx="12" cy="8" r="0.5" fill="currentColor" stroke="none"/></svg> Prices start from listed rate</div>
       </div>
 
-      <div class="price-card glass reveal reveal-delay-3">
+      <div class="price-card glass reveal reveal-delay-3" style="--card-solid:#34007D;">
         <div class="price-card-head">
-          <div class="price-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <div class="price-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7.5"/><line x1="21" y1="21" x2="16" y2="16"/><path d="M7.5 11.5l1.5-2 2 1.5 2-3"/></svg></div>
           <h3>SEO</h3>
         </div>
         <div class="price-list">
@@ -658,7 +428,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
           <div class="price-row"><span class="p-name">SEO Audit Report</span><span class="p-amount">$24.99</span></div>
           <div class="price-row"><span class="p-name">Backlink Building</span><span class="p-amount">$39.99 <small>/mo</small></span></div>
         </div>
-        <div class="price-note"><i class="fa-solid fa-circle-info"></i> Prices start from listed rate</div>
+        <div class="price-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex:none;"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="11"/><circle cx="12" cy="8" r="0.5" fill="currentColor" stroke="none"/></svg> Prices start from listed rate</div>
       </div>
 
     </div>
@@ -730,7 +500,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   </div>
 </footer>
 
-<button class="to-top glass" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<button class="to-top glass" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -765,25 +535,6 @@ function observeReveals(){
 }
 observeReveals();
 
-/* Accordion: What's included */
-document.querySelectorAll('.acc-item .acc-head').forEach(head => {
-  head.addEventListener('click', () => {
-    const item = head.closest('.acc-item');
-    const body = item.querySelector('.acc-body');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.acc-item.open').forEach(open => {
-      if(open !== item){
-        open.classList.remove('open');
-        open.querySelector('.acc-head').setAttribute('aria-expanded','false');
-        open.querySelector('.acc-body').style.maxHeight = null;
-      }
-    });
-    item.classList.toggle('open', !isOpen);
-    head.setAttribute('aria-expanded', String(!isOpen));
-    body.style.maxHeight = !isOpen ? body.scrollHeight + 'px' : null;
-  });
-});
-
 /* FAQ accordion */
 document.querySelectorAll('.faq-item .faq-q').forEach(q => {
   q.addEventListener('click', () => {
@@ -804,7 +555,6 @@ document.querySelectorAll('.faq-item .faq-q').forEach(q => {
 });
 
 window.addEventListener('resize', () => {
-  document.querySelectorAll('.acc-item.open .acc-body').forEach(b => b.style.maxHeight = b.scrollHeight + 'px');
   document.querySelectorAll('.faq-item.open .faq-a').forEach(a => a.style.maxHeight = a.scrollHeight + 'px');
 });
 </script>
