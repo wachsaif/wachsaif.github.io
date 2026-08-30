@@ -35,7 +35,7 @@
     "areaServed": "Worldwide",
     "sameAs": [
       "https://www.behance.net/wach_saif",
-      "https://www.facebook.com/share/18QCc19xwL/",
+      "https://www.fiverr.com/wach_saif",
       "https://linkedin.com/in/wachsaif"
     ]
   },
@@ -46,10 +46,10 @@
     "@type": "OfferCatalog",
     "name": "Services Offered by Wach Saif",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Identity Design Service" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Affordable Website Design Service" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Expert for Small Business" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Search Engine Marketing Consultant" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Identity Design Service" }, "priceCurrency": "USD", "price": "19.99" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Affordable Website Design Service" }, "priceCurrency": "USD", "price": "79.99" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Expert for Small Business" }, "priceCurrency": "USD", "price": "59.99" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Search Engine Marketing Consultant" }, "priceCurrency": "USD", "price": "10.00" }
     ]
   }
 }
@@ -239,6 +239,30 @@ section{padding:64px 0;position:relative;}
   .acc-body-inner .acc-grid{grid-template-columns:1fr;gap:16px;}
   .acc-icon{width:38px;height:38px;font-size:15px;}
   .acc-head h4{font-size:15.5px;}
+}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.price-card{padding:32px;border-radius:var(--radius);}
+.price-card-head{display:flex;align-items:center;gap:14px;margin-bottom:22px;}
+.price-icon{width:46px;height:46px;flex:none;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;background:linear-gradient(135deg,var(--secondary),var(--primary));}
+.price-card-head h3{font-size:18px;}
+.price-list{display:flex;flex-direction:column;}
+.price-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--surface-border);}
+.price-row:last-child{border-bottom:none;}
+.price-row .p-name{font-size:14.5px;color:var(--text-main);}
+.price-row .p-amount{font-size:14.5px;font-weight:700;white-space:nowrap;color:var(--secondary);}
+.price-row .p-amount small{font-weight:500;color:var(--text-muted);font-size:12px;}
+.price-note{margin-top:18px;font-size:12.5px;color:var(--text-muted);display:flex;align-items:center;gap:8px;}
+.price-note i{color:var(--accent);}
+@media (max-width:860px){.pricing-grid{grid-template-columns:1fr;gap:16px;}}
+@media (max-width:640px){
+  .price-card{padding:22px;}
+  .price-card-head{margin-bottom:16px;gap:12px;}
+  .price-icon{width:40px;height:40px;font-size:16px;}
+  .price-card-head h3{font-size:16px;}
+  .price-row{padding:11px 0;}
+  .price-row .p-name, .price-row .p-amount{font-size:13.5px;}
 }
 
 /* PROCESS */
@@ -560,6 +584,89 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
 
 <section>
   <div class="container">
+    <span class="eyebrow reveal">Pricing</span>
+    <h2 class="section-title reveal">Straightforward, per-service pricing</h2>
+    <p class="section-sub reveal">Starting prices for each service — final quotes depend on project scope and are confirmed before any work begins.</p>
+    <div class="pricing-grid">
+
+      <div class="price-card glass reveal">
+        <div class="price-card-head">
+          <div class="price-icon"><i class="fa-solid fa-palette"></i></div>
+          <h3>Graphic Design</h3>
+        </div>
+        <div class="price-list">
+          <div class="price-row"><span class="p-name">Logo Design</span><span class="p-amount">$19.99</span></div>
+          <div class="price-row"><span class="p-name">Business Card Design</span><span class="p-amount">$12.99</span></div>
+          <div class="price-row"><span class="p-name">Flyer Design</span><span class="p-amount">$14.99</span></div>
+          <div class="price-row"><span class="p-name">Brochure Design</span><span class="p-amount">$19.99</span></div>
+          <div class="price-row"><span class="p-name">Book Cover Design</span><span class="p-amount">$17.99</span></div>
+          <div class="price-row"><span class="p-name">T-Shirt Design</span><span class="p-amount">$12.99</span></div>
+          <div class="price-row"><span class="p-name">Social Media Post Design</span><span class="p-amount">$9.99</span></div>
+          <div class="price-row"><span class="p-name">Poster/Banner Design</span><span class="p-amount">$14.99</span></div>
+          <div class="price-row"><span class="p-name">Resume/CV Design</span><span class="p-amount">$12.99</span></div>
+          <div class="price-row"><span class="p-name">Brand Identity Package</span><span class="p-amount">$49.99</span></div>
+        </div>
+        <div class="price-note"><i class="fa-solid fa-circle-info"></i> Prices start from listed rate</div>
+      </div>
+
+      <div class="price-card glass reveal reveal-delay-1">
+        <div class="price-card-head">
+          <div class="price-icon"><i class="fa-solid fa-code"></i></div>
+          <h3>Website Development</h3>
+        </div>
+        <div class="price-list">
+          <div class="price-row"><span class="p-name">Landing Page Design</span><span class="p-amount">$79.99</span></div>
+          <div class="price-row"><span class="p-name">Business Website</span><span class="p-amount">$149.99</span></div>
+          <div class="price-row"><span class="p-name">Portfolio Website</span><span class="p-amount">$99.99</span></div>
+          <div class="price-row"><span class="p-name">E-commerce Website</span><span class="p-amount">$249.99</span></div>
+          <div class="price-row"><span class="p-name">WordPress Development</span><span class="p-amount">$129.99</span></div>
+          <div class="price-row"><span class="p-name">Custom HTML/CSS/JS Website</span><span class="p-amount">$99.99</span></div>
+          <div class="price-row"><span class="p-name">Website Redesign</span><span class="p-amount">$99.99</span></div>
+          <div class="price-row"><span class="p-name">Website Speed Optimization</span><span class="p-amount">$39.99</span></div>
+          <div class="price-row"><span class="p-name">Blog/News Website</span><span class="p-amount">$99.99</span></div>
+          <div class="price-row"><span class="p-name">Booking/Appointment Website</span><span class="p-amount">$149.99</span></div>
+          <div class="price-row"><span class="p-name">Website Maintenance & Support</span><span class="p-amount">$29.99 <small>/mo</small></span></div>
+        </div>
+        <div class="price-note"><i class="fa-solid fa-circle-info"></i> Prices start from listed rate</div>
+      </div>
+
+      <div class="price-card glass reveal reveal-delay-2">
+        <div class="price-card-head">
+          <div class="price-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          <h3>Digital Marketing</h3>
+        </div>
+        <div class="price-list">
+          <div class="price-row"><span class="p-name">Social Media Marketing <small style="display:block;color:var(--text-muted);font-size:11.5px;">(per platform/month)</small></span><span class="p-amount">$49.99</span></div>
+          <div class="price-row"><span class="p-name">Facebook/Instagram Ads Management</span><span class="p-amount">$10.00 <small>/hr</small></span></div>
+          <div class="price-row"><span class="p-name">Content Creation & Copywriting</span><span class="p-amount">$10.00 <small>/hr</small></span></div>
+          <div class="price-row"><span class="p-name">Email Marketing Setup</span><span class="p-amount">$39.99</span></div>
+        </div>
+        <div class="price-note"><i class="fa-solid fa-circle-info"></i> Prices start from listed rate</div>
+      </div>
+
+      <div class="price-card glass reveal reveal-delay-3">
+        <div class="price-card-head">
+          <div class="price-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <h3>SEO</h3>
+        </div>
+        <div class="price-list">
+          <div class="price-row"><span class="p-name">On-Page SEO</span><span class="p-amount">$59.99</span></div>
+          <div class="price-row"><span class="p-name">Off-Page SEO</span><span class="p-amount">$59.99</span></div>
+          <div class="price-row"><span class="p-name">Full SEO Package <small style="display:block;color:var(--text-muted);font-size:11.5px;">(monthly)</small></span><span class="p-amount">$129.99</span></div>
+          <div class="price-row"><span class="p-name">Keyword Research</span><span class="p-amount">$19.99</span></div>
+          <div class="price-row"><span class="p-name">Local SEO (Google Business Profile)</span><span class="p-amount">$29.99</span></div>
+          <div class="price-row"><span class="p-name">SEO Audit Report</span><span class="p-amount">$24.99</span></div>
+          <div class="price-row"><span class="p-name">Backlink Building</span><span class="p-amount">$39.99 <small>/mo</small></span></div>
+        </div>
+        <div class="price-note"><i class="fa-solid fa-circle-info"></i> Prices start from listed rate</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
     <span class="eyebrow reveal">Common Questions</span>
     <h2 class="section-title reveal">FAQs</h2>
     <p class="section-sub reveal">Quick answers before you reach out.</p>
@@ -611,7 +718,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
       </div>
       <div class="hero-socials">
         <a href="https://www.behance.net/wach_saif" target="_blank" rel="noopener" class="social-icon glass" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
-        <a href="https://www.facebook.com/share/18QCc19xwL/" target="_blank" rel="noopener" class="social-icon glass" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.fiverr.com/wach_saif" target="_blank" rel="noopener" class="social-icon glass" aria-label="Fiverr"><i class="fa-brands fa-fiverr"></i></a>
         <a href="https://linkedin.com/in/wachsaif" target="_blank" rel="noopener" class="social-icon glass" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         <a href="mailto:wachsaif1@gmail.com" class="social-icon glass" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
