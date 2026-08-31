@@ -601,21 +601,30 @@ section{padding:72px 0;position:relative;}
 .payment-badge img{height:26px;width:auto;object-fit:contain;}
 .payment-badge[data-brand="visa"] img{height:22px;}
 .payment-badge[data-brand="skrill"] img{height:20px;}
-.payment-badge[data-brand="payoneer"] img{height:36px;}
-.payment-badge[data-brand="wise"] img{height:38px;}
+.payment-badge[data-brand="payoneer"] img{height:52px;}
+.payment-badge[data-brand="wise"] img{height:54px;}
 .payment-badge .payment-label{
   font-size:16px;font-weight:600;color:var(--text-main);white-space:nowrap;
 }
 
 @media (max-width:768px){
   .payments-title{margin-bottom:30px;}
-  .marquee-track{gap:36px;animation-duration:20s;}
-  .payment-badge img{height:22px;}
-  .payment-badge[data-brand="visa"] img{height:19px;}
-  .payment-badge[data-brand="skrill"] img{height:17px;}
-  .payment-badge[data-brand="payoneer"] img{height:30px;}
-  .payment-badge[data-brand="wise"] img{height:32px;}
-  .payment-badge .payment-label{font-size:14px;}
+  .marquee-track{gap:32px;animation-duration:20s;}
+  .payment-badge img{height:30px;}
+  .payment-badge[data-brand="visa"] img{height:26px;}
+  .payment-badge[data-brand="skrill"] img{height:24px;}
+  .payment-badge[data-brand="payoneer"] img{height:58px;}
+  .payment-badge[data-brand="wise"] img{height:60px;}
+  .payment-badge .payment-label{font-size:15px;}
+}
+@media (max-width:420px){
+  .marquee-track{gap:26px;}
+  .payment-badge img{height:26px;}
+  .payment-badge[data-brand="visa"] img{height:23px;}
+  .payment-badge[data-brand="skrill"] img{height:21px;}
+  .payment-badge[data-brand="payoneer"] img{height:50px;}
+  .payment-badge[data-brand="wise"] img{height:52px;}
+  .payment-badge .payment-label{font-size:13.5px;}
 }
 
 /* ============================================
