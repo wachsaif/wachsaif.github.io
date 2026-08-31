@@ -1096,7 +1096,7 @@ const PORTFOLIO_ITEMS = [
    isn't in the Simple Icons catalog. */
 const PAYMENT_BRANDS = [
   { name:"Visa", slug:"visa", src:"https://commons.wikimedia.org/wiki/Special:FilePath/Visa%20Inc.%20logo.svg" },
-  { name:"Mastercard", slug:"mastercard", src:"https://commons.wikimedia.org/wiki/Special:FilePath/Mastercard%202019%20logo.svg", showLabel:true },
+  { name:"Mastercard", slug:"mastercard", src:"https://commons.wikimedia.org/wiki/Special:FilePath/Mastercard%202019%20logo.svg" },
   { name:"Discover", slug:"discover", src:"https://commons.wikimedia.org/wiki/Special:FilePath/Discover%20Card%20logo.svg" },
   { name:"PayPal", slug:"paypal", src:"https://commons.wikimedia.org/wiki/Special:FilePath/PayPal%202024.svg" },
   { name:"Payoneer", slug:"payoneer", src:"https://commons.wikimedia.org/wiki/Special:FilePath/Payoneer%20logo.svg" },
@@ -1157,7 +1157,6 @@ function renderPaymentsMarquee(){
   const badge = (brand) => `
     <div class="payment-badge" data-brand="${brand.slug}" title="${brand.name}">
       <img src="${brand.src}" alt="${brand.name}" loading="lazy" width="90" height="30">
-      ${brand.showLabel ? `<span class="payment-label">${brand.name}</span>` : ''}
     </div>`;
   const html = PAYMENT_BRANDS.map(badge).join('') + PAYMENT_BRANDS.map(badge).join('');
   track.innerHTML = html;
