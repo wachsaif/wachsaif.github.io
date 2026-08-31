@@ -569,6 +569,52 @@ section{padding:72px 0;position:relative;}
 .hire-section .btn-primary:hover{transform:translateY(-3px) scale(1.02);}
 
 /* ============================================
+   PAYMENTS ACCEPTED (marquee)
+   ============================================ */
+#payments{text-align:center;padding-top:32px;padding-bottom:56px;}
+.payments-title{
+  font-size:clamp(24px,3.6vw,34px);
+  font-weight:700;
+  margin-bottom:40px;
+  letter-spacing:-0.5px;
+}
+
+.marquee-outer{
+  position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+}
+.marquee-track{
+  display:flex;align-items:center;gap:56px;width:max-content;
+  animation:paymentsMarquee 26s linear infinite;
+}
+.marquee-outer:hover .marquee-track{animation-play-state:paused;}
+@keyframes paymentsMarquee{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+.payment-badge{
+  flex:0 0 auto;display:flex;align-items:center;gap:10px;
+  opacity:0.88;transition:opacity 0.3s,transform 0.3s var(--transition);
+}
+.payment-badge:hover{opacity:1;transform:translateY(-2px);}
+.payment-badge img{height:26px;width:auto;object-fit:contain;}
+.payment-badge[data-brand="visa"] img{height:22px;}
+.payment-badge[data-brand="skrill"] img{height:20px;}
+.payment-badge .payment-label{
+  font-size:16px;font-weight:600;color:var(--text-main);white-space:nowrap;
+}
+
+@media (max-width:768px){
+  .payments-title{margin-bottom:30px;}
+  .marquee-track{gap:36px;animation-duration:20s;}
+  .payment-badge img{height:22px;}
+  .payment-badge[data-brand="visa"] img{height:19px;}
+  .payment-badge[data-brand="skrill"] img{height:17px;}
+  .payment-badge .payment-label{font-size:14px;}
+}
+
+/* ============================================
    CONTACT
    ============================================ */
 .contact-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;}
@@ -929,6 +975,19 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
 </section>
 
 <!-- ======================================================
+     PAYMENTS ACCEPTED
+====================================================== -->
+<section id="payments">
+  <div class="container">
+    <h2 class="payments-title reveal">Payment methods</h2>
+
+    <div class="marquee-outer reveal">
+      <div class="marquee-track" id="paymentsMarquee"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
      HIRE ME (highlighted CTA)
 ====================================================== -->
 <section id="hire">
@@ -1018,6 +1077,20 @@ const PORTFOLIO_ITEMS = [
   { title:"Life Insurance Company Social Media Post Design", category:"design", tag:"Social Media Design", image:"Assets/life-insurance-social-media-post-design-wachsaif.jpg", alt:"Life insurance company social media post design by Wach Saif with family protection theme", live:"Assets/life-insurance-social-media-post-design-wachsaif.jpg", details:"Assets/life-insurance-social-media-post-design-wachsaif.jpg" },
 ];
 
+/* Payment brands shown in the "Payment methods I accept" marquee.
+   Logos are loaded from the Simple Icons CDN (official brand colors) except
+   Skrill, which is loaded from its Wikimedia Commons file, since Skrill
+   isn't in the Simple Icons catalog. */
+const PAYMENT_BRANDS = [
+  { name:"Visa", slug:"visa", src:"https://cdn.simpleicons.org/visa/1A1F71" },
+  { name:"Mastercard", slug:"mastercard", src:"https://cdn.simpleicons.org/mastercard/EB001B", showLabel:true },
+  { name:"Discover", slug:"discover", src:"https://cdn.simpleicons.org/discover/FF6000" },
+  { name:"PayPal", slug:"paypal", src:"https://cdn.simpleicons.org/paypal/002991" },
+  { name:"Payoneer", slug:"payoneer", src:"https://cdn.simpleicons.org/payoneer/FF4800", showLabel:true },
+  { name:"Wise", slug:"wise", src:"https://cdn.simpleicons.org/wise/9FE870", showLabel:true },
+  { name:"Skrill", slug:"skrill", src:"https://commons.wikimedia.org/wiki/Special:FilePath/Skrill_logo_2025.svg" },
+];
+
 /* ============================================================
    RENDER FROM DATA
    ============================================================ */
@@ -1060,6 +1133,23 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     renderPortfolio(btn.dataset.filter);
   });
 });
+
+/* ============================================================
+   PAYMENTS MARQUEE — logos rendered twice back-to-back so the
+   -50% translateX loop in CSS is seamless (no visible jump/reset).
+   ============================================================ */
+function renderPaymentsMarquee(){
+  const track = document.getElementById('paymentsMarquee');
+  if(!track) return;
+  const badge = (brand) => `
+    <div class="payment-badge" data-brand="${brand.slug}" title="${brand.name}">
+      <img src="${brand.src}" alt="${brand.name}" loading="lazy" width="90" height="30">
+      ${brand.showLabel ? `<span class="payment-label">${brand.name}</span>` : ''}
+    </div>`;
+  const html = PAYMENT_BRANDS.map(badge).join('') + PAYMENT_BRANDS.map(badge).join('');
+  track.innerHTML = html;
+}
+renderPaymentsMarquee();
 
 /* ============================================================
    TYPING / ROTATING TEXT
