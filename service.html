@@ -106,7 +106,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;overflow-x:hidden;}
-body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text-main);overflow-x:hidden;line-height:1.6;}
+body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text-main);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}}
 ::selection{background:var(--secondary);color:#fff;}
 a{text-decoration:none;color:inherit;}
@@ -119,11 +119,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .gradient-text{background:linear-gradient(90deg,var(--secondary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;}
 .inline-link{color:var(--accent);font-weight:700;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;}
 .inline-link:hover{color:var(--secondary);text-decoration-color:var(--secondary);}
+.hire-section .inline-link{color:#fff;text-decoration-color:rgba(255,255,255,.7);}
+.hire-section .inline-link:hover{color:var(--accent);text-decoration-color:var(--accent);}
 .glass{background:var(--surface);border:1px solid var(--surface-border);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--transition),transform .8s var(--transition);}
-.reveal.in-view{opacity:1;transform:translateY(0);}
+/* REVEAL — fixed: crisp text during transition (no subpixel blur) */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .8s var(--transition),transform .8s var(--transition);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  will-change:transform,opacity;
+}
+.reveal.in-view{
+  opacity:1;
+  transform:translateY(0);
+  will-change:auto;
+}
 .reveal-delay-1{transition-delay:.1s;}
 .reveal-delay-2{transition-delay:.2s;}
 .reveal-delay-3{transition-delay:.3s;}
