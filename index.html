@@ -139,6 +139,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   color:transparent;
 }
 
+.inline-link{color:var(--accent);font-weight:700;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;}
+.inline-link:hover{color:var(--secondary);text-decoration-color:var(--secondary);}
+
 /* Glassmorphism utility */
 .glass{
   background:var(--surface);
@@ -847,7 +850,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
   <div class="container">
     <span class="eyebrow reveal">What I Do</span>
     <h2 class="section-title reveal">Services built to grow your brand</h2>
-    <p class="section-sub reveal">From first impression to first-page ranking — every service is designed to work together.</p>
+    <p class="section-sub reveal">From first impression to first-page ranking — every service is designed to work together. See full details on the <a href="service.html" class="inline-link">services page</a>.</p>
 
     <div class="services-grid" id="servicesGrid">
       <div class="service-card glass reveal">
