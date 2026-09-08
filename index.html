@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/wach-saif-logo-favicon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="assets/wach-saif-logo-favicon.png">
+<link rel="preload" as="image" href="assets/wach-saif-graphic-designer-kushtia.webp" fetchpriority="high">
 <!-- ============ SEO META TAGS ============ -->
 <title>Wach Saif | All-in-One Freelance Web and Design Expert</title>
 <meta name="description" content="Brand identity design, responsive website development & technical SEO — all-in-one freelance service for businesses in the US, UK, Australia, Canada & EU.">
@@ -49,35 +50,16 @@
 }
 </script>
 
-<!-- ============ FONTS (preconnect + swap = fast + no invisible text) ============ -->
+<!-- ============ FONTS + FONT AWESOME (loaded async so they don't block first paint) ============ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- ============ FONT AWESOME (only icons used — lighter than full kit) ============ -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" onerror="this.onerror=null;this.rel='stylesheet';this.href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css'">
+<noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<script>
-  // Fallback: if the primary Font Awesome CDN fails to load (blocked network,
-  // ad-blocker, etc.), load a second CDN so icons still render.
-  (function(){
-    var testIcon = document.createElement('i');
-    testIcon.className = 'fa-solid fa-check';
-    testIcon.style.position = 'absolute';
-    testIcon.style.visibility = 'hidden';
-    document.documentElement.appendChild(testIcon);
-    window.addEventListener('DOMContentLoaded', function(){
-      var loaded = window.getComputedStyle(testIcon, ':before').content !== 'none' &&
-                    window.getComputedStyle(testIcon, ':before').content !== '';
-      if(!loaded){
-        var fallback = document.createElement('link');
-        fallback.rel = 'stylesheet';
-        fallback.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css';
-        document.head.appendChild(fallback);
-      }
-      testIcon.remove();
-    });
-  })();
-</script>
+</noscript>
 
 <style>
 /* ============================================
@@ -823,7 +805,7 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
       <div class="hero-photo-frame">
         <picture>
           <source id="heroPhotoWebp" type="image/webp" srcset="assets/wach-saif-graphic-designer-kushtia.webp">
-          <img id="heroPhoto" src="assets/wach-saif-graphic-designer-kushtia.png" alt="Wach Saif — Graphic Designer and Web Developer in Kushtia, Bangladesh" width="340" height="400">
+          <img id="heroPhoto" src="assets/wach-saif-graphic-designer-kushtia.png" alt="Wach Saif — Graphic Designer and Web Developer in Kushtia, Bangladesh" width="340" height="400" fetchpriority="high" decoding="async">
         </picture>
       </div>
       <div class="floating-card glass fc-1"><i class="fa-solid fa-users"></i> 169+ Clients</div>
@@ -934,6 +916,8 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
       <img
         class="testi-avatar"
         src="assets/client-1.jpg"
+        width="46"
+        height="46"
         alt="Bruno Cariello testimonial client"
         loading="lazy"
       >
@@ -960,6 +944,8 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
       <img
         class="testi-avatar"
         src="assets/client-2.jpg"
+        width="46"
+        height="46"
         alt="Mariano Casarini testimonial client"
         loading="lazy"
       >
@@ -987,6 +973,8 @@ footer{padding:60px 0 30px;border-top:1px solid var(--surface-border);}
       <img
         class="testi-avatar"
         src="assets/client-3.jpg"
+        width="46"
+        height="46"
         alt="Leonardo Andres Silva testimonial client"
         loading="lazy"
       >
