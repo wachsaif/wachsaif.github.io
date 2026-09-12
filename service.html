@@ -255,6 +255,29 @@ section{padding:56px 0;position:relative;}
 .tools-row{display:flex;gap:10px;flex-wrap:wrap;}
 .tool-chip{padding:8px 16px;border-radius:100px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:7px;}
 
+/* PRICING TABLES (Basic / Standard / Premium) */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px;align-items:stretch;}
+.pricing-card{position:relative;border-radius:var(--radius);padding:36px 28px;display:flex;flex-direction:column;gap:22px;transition:transform .35s var(--transition),box-shadow .35s var(--transition);}
+.pricing-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px -16px rgba(52,0,125,.18);}
+.pricing-card.featured{border:1.5px solid var(--secondary);background:linear-gradient(180deg,rgba(99,0,205,.07),rgba(0,168,150,.04));box-shadow:0 20px 50px -18px rgba(99,0,205,.28);}
+.pricing-card.featured:hover{transform:translateY(-8px);}
+.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:6px;padding:7px 18px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.3px;color:#fff;background:linear-gradient(90deg,var(--secondary),var(--primary));box-shadow:0 8px 20px -6px rgba(99,0,205,.5);white-space:nowrap;}
+.pricing-card-head{text-align:center;padding-bottom:18px;border-bottom:1px solid var(--surface-border);}
+.pricing-tier-label{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;color:var(--accent);}
+.pricing-amount{font-size:38px;font-weight:800;letter-spacing:-1px;color:var(--text-main);margin:10px 0 8px;}
+.pricing-currency{font-size:20px;font-weight:700;vertical-align:top;margin-right:2px;}
+.pricing-period{font-size:13px;font-weight:500;color:var(--text-muted);margin-left:4px;}
+.pricing-tier-desc{font-size:13.5px;color:var(--text-muted);line-height:1.6;}
+.pricing-features{display:flex;flex-direction:column;gap:12px;flex-grow:1;}
+.pricing-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text-main);}
+.pricing-features li i{font-size:12px;margin-top:4px;flex-shrink:0;color:var(--accent);}
+.pricing-features li.not-included{color:var(--text-muted);opacity:.6;}
+.pricing-features li.not-included i{color:var(--text-muted);}
+.btn-outline{background:transparent;border:1.5px solid var(--surface-border);color:var(--text-main);justify-content:center;}
+.btn-outline:hover{border-color:var(--secondary);color:var(--secondary);transform:translateY(-3px);}
+.pricing-card .btn{width:100%;justify-content:center;margin-top:auto;}
+.pricing-note{text-align:center;margin-top:28px;font-size:14px;color:var(--text-muted);}
+
 /* FAQ */
 .faq-list{max-width:800px;display:flex;flex-direction:column;gap:12px;}
 .faq-item{border-radius:14px;overflow:hidden;}
@@ -299,6 +322,8 @@ footer{padding:56px 0 28px;border-top:1px solid var(--surface-border);}
   .service-inner.reverse{direction:ltr;}
   .service-visual{padding:32px 24px;gap:14px;}
   .service-visual-icon{width:64px;height:64px;font-size:26px;border-radius:18px;}
+  .pricing-grid{grid-template-columns:1fr;gap:20px;max-width:440px;margin-left:auto;margin-right:auto;}
+  .pricing-card.featured{order:-1;}
 }
 @media(max-width:640px){
   section{padding:40px 0;}
@@ -312,6 +337,9 @@ footer{padding:56px 0 28px;border-top:1px solid var(--surface-border);}
   .service-includes li{font-size:13.5px;}
   .hire-section{padding:48px 22px;}
   .btn{padding:12px 22px;font-size:13.5px;}
+  .pricing-card{padding:30px 22px;}
+  .pricing-amount{font-size:32px;}
+  .popular-badge{font-size:11px;padding:6px 14px;}
 }
 @media(max-width:768px){
   .container{padding:0 18px;}
@@ -557,6 +585,72 @@ footer{padding:56px 0 28px;border-top:1px solid var(--surface-border);}
     </div>
   </div>
 </div>
+
+<!-- PRICING TABLES -->
+<section id="pricing">
+  <div class="container">
+    <span class="eyebrow reveal">Packages &amp; Pricing</span>
+    <h2 class="section-title reveal">Choose the package that fits your budget</h2>
+    <p class="section-sub reveal">Compare what's included in each tier — pick the one that matches your project, or get in touch for a custom combination.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card glass reveal">
+        <div class="pricing-card-head">
+          <span class="pricing-tier-label">Basic</span>
+          <div class="pricing-amount"><span class="pricing-currency">$</span>150<span class="pricing-period">/ project</span></div>
+          <p class="pricing-tier-desc">A focused starting package — great for a single service done right.</p>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> 1 core service (design, site, or SEO)</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Up to 3 pages / 2 logo concepts</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> 2 revision rounds</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> 5–7 day delivery</li>
+          <li class="not-included"><i class="fa-solid fa-xmark" aria-hidden="true"></i> Full brand identity kit</li>
+          <li class="not-included"><i class="fa-solid fa-xmark" aria-hidden="true"></i> SEO setup included</li>
+          <li class="not-included"><i class="fa-solid fa-xmark" aria-hidden="true"></i> Priority support</li>
+        </ul>
+        <a href="hire.html" class="btn btn-outline">Get Started</a>
+      </div>
+
+      <div class="pricing-card glass featured reveal reveal-delay-1">
+        <span class="popular-badge"><i class="fa-solid fa-star" aria-hidden="true"></i> Most Popular</span>
+        <div class="pricing-card-head">
+          <span class="pricing-tier-label">Standard</span>
+          <div class="pricing-amount"><span class="pricing-currency">$</span>300<span class="pricing-period">/ project</span></div>
+          <p class="pricing-tier-desc">The best balance — design, a website, and SEO basics working together.</p>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Logo + up to 5-page website</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Full brand identity kit</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> On-page SEO setup</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> 4 revision rounds</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> 10–14 day delivery</li>
+          <li class="not-included"><i class="fa-solid fa-xmark" aria-hidden="true"></i> Monthly marketing support</li>
+        </ul>
+        <a href="hire.html" class="btn btn-primary">Get Started</a>
+      </div>
+
+      <div class="pricing-card glass reveal reveal-delay-2">
+        <div class="pricing-card-head">
+          <span class="pricing-tier-label">Premium</span>
+          <div class="pricing-amount"><span class="pricing-currency">$</span>550<span class="pricing-period">/ project</span></div>
+          <p class="pricing-tier-desc">The full package — design, development, SEO &amp; ongoing marketing.</p>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Full brand identity + up to 10-page site</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Full technical &amp; on-page SEO</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> 1 month of digital marketing included</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Unlimited revisions</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> 14–21 day delivery</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Priority support &amp; fastest response</li>
+        </ul>
+        <a href="hire.html" class="btn btn-outline">Get Started</a>
+      </div>
+    </div>
+
+    <p class="pricing-note reveal">Need something different? <a href="hire.html" class="inline-link">Get in touch</a> for a custom quote tailored to your project.</p>
+  </div>
+</section>
 
 <!-- FAQ -->
 <section>
