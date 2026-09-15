@@ -147,6 +147,10 @@ section{padding:64px 0;position:relative;}
 .contact-item i{width:44px;height:44px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff;background:linear-gradient(135deg,var(--secondary),var(--primary));}
 .contact-item strong{display:block;font-size:14px;margin-bottom:3px;}
 .contact-item span, .contact-item a{color:var(--text-muted);font-size:14px;}
+.contact-item a{text-decoration:none;cursor:pointer;transition:color 0.25s;}
+.contact-item a:hover,.contact-item a:focus-visible{color:var(--primary);text-decoration:underline;}
+.copy-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(14px);background:var(--primary,#34007d);color:#fff;padding:11px 20px;border-radius:100px;font-size:13.5px;font-weight:600;z-index:9999;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;}
+.copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 .avail-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;margin-top:6px;}
 .avail-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
 
@@ -583,5 +587,38 @@ function showStatus(msg, type){
 }
 </script>
 
+
+<script>
+/* Contact links: keep mailto:/tel: working, but also copy the value so the
+   address is never lost when no mail app or dialer is configured. */
+(function(){
+  var toast;
+  function showToast(msg){
+    if(!toast){ toast = document.createElement('div'); toast.className='copy-toast'; document.body.appendChild(toast); }
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function(){ toast.classList.remove('show'); }, 2000);
+  }
+  function copy(text){
+    if(navigator.clipboard && window.isSecureContext){ return navigator.clipboard.writeText(text); }
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly',''); ta.style.position='absolute'; ta.style.left='-9999px';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(ta);
+    return Promise.resolve();
+  }
+  document.querySelectorAll('.contact-item a[href^="mailto:"], .contact-item a[href^="tel:"]').forEach(function(a){
+    a.title = 'Click to open — value is also copied';
+    a.addEventListener('click', function(){
+      var val = a.textContent.trim();
+      copy(val).then(function(){
+        showToast((a.getAttribute('href').indexOf('mailto:') === 0 ? 'Email' : 'Phone number') + ' copied: ' + val);
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
